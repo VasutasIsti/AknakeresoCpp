@@ -17,34 +17,37 @@ public:
 
     /// Default konstruktor\n
     /// Alapvetoen egy "nemAkna", "nullaAknaSzomszed"-dal rendelkezo cellat hoz letre
-    /// @param isBomb Az adott cella Akna legyen-e
-    /// @param neighbourCount Az adott cellanak hany Akna szomszedja van
     Cell() : isBomb(false), isFlaged(false), isVisited(false), neighbourCount(0) {};
+    /// Akna konstruktor\n
+    /// Akna cellak neighbourCount-ja alapertelmezetten -1
+    /// @param isBomb Az adott cella Akna legyen-e
     Cell(bool isBomb) : isBomb(isBomb), isFlaged(false), isVisited(false), neighbourCount(-1) {};
+    /// Egyszeru konstruktor\n
+    /// Ha esetleg mar tudhato a cella osszes szomszedjanak Akna volta
+    /// @param neighbourCount Az adott cellanak hany Akna szomszedja van
     Cell(int neighbourCount);
 
     /// Megvaltoztatja a cella zaszlozasi allapotat
     /// @return A zaszla beallitas utani allapotat
     bool Flag();
-
     /// Felfedi a cellat
     /// @return A felfedett cella akna voltat
     bool Visit();
-
     /// Beallitja a neigbourCount erteket
     /// @param n A szomszedos aknak szama
     void setNeighbourCount(const int n) {neighbourCount = n;}
-
     /// Lekeri a neigbourCount erteket
     /// @return A szomszedos Aknak darabszamat
     int getNeighbourCount() const {return neighbourCount;}
 
     /// Cella teljes tartalmanak kiirasa
+    /// @param os A kiirast vegzo adatfolyam
+    /// @param cell A kiirando cella
     friend std::ostream& operator<<(std::ostream& os, const Cell& cell);
-
     /// Cella tartalmanak feltoltese adatfolyambol
+    /// @param is A beolvasast vegzo adatfolyam
+    /// @param cell A cella, aminek erteket akarunk igy adni
     friend std::istream& operator>>(std::istream& is, Cell& cell);
 };
-
 
 #endif //CELL_HPP

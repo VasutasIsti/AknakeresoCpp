@@ -39,16 +39,22 @@ void validateInputs(char* format, int* data) {
         throw "Invalid format!";
     for (int i = 0; i < 3; i++)
         if (data[i] != 0 && data[i] != 1)
-            throw "Invalid format!";
+            throw "Invalid data!";
     if (data[3] < -1 || data[3] > 8)
-        throw "Invalid format!";
+        throw "Invalid data!";
+    if (data[3] < 0 && !data[0])
+        throw "Contradiction in data!";
 }
 
 // Itt megszivattam magam a fancy kiirassal...
 std::istream& operator>>(std::istream& is, Cell& cell) {
     char format[5];
     int data[4];
-    is >> format[0] >> data[0] >> format[1] >> data[1] >> format[2] >> data[2] >> format[3] >> data[3] >> format[4];
+    is >> format[0] >> data[0] >>
+          format[1] >> data[1] >>
+          format[2] >> data[2] >>
+          format[3] >> data[3] >>
+          format[4];
     validateInputs(format, data);
     cell.isBomb = data[0];
     cell.isFlaged = data[1];
