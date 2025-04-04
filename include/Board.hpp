@@ -5,6 +5,7 @@
 #ifndef BOARD_HPP
 #define BOARD_HPP
 
+#include <cmath>
 #include <iostream>
 #include <memory>
 
@@ -14,16 +15,39 @@ class Board {
     static int defaultx, defaulty;  ///< Alap palyameretek
     static double defaultdiff;      ///< Alap nehezseg
 
-    Cell** cells;   ///<
-    int sizeX, sizeY;
-    double difficulty;
-    int bombs;
+    Cell** cells;   ///< Maga a palya, indexei sorrendben: oszlop, sor
+    int sizeX, sizeY;   ///< A palya szelessege, magassaga
+    double difficulty;  ///< Az Aknak aranya (0.0 - 1.0)
+    int bombs;  ///< Az Aknak szama
+
+    // segito fuggvenyek, mashol nem hasznalandok
+    /// A palya nehezsegebol szamolja ki az aknak szamat
+    inline int diffToBombCount() const {return floor(sizeX*sizeY*difficulty);}
+    /// Az aknak szamabol adja meg a nehezseget
+    inline double bombCountToDiff() const  {return (double)bombs/sizeX*sizeY;}
+
+    /// Az adott indexek a palyan vannak-e meg
+    /// @param x Az oszlop sorszama
+    /// @param y A sor sorszama
+    /// @return Jok-e az indexek
+    bool isOnBoard(int x, int y) const;
+    /// Megszamolja, hany akna szomszedja van
+    /// @param x Az oszlop sorszama
+    /// @param y A sor sorszama
+    /// @return A szomszedos akna mezok szamat
+    int NeighbourCount(int x, int y) const;
 public:
 
     /// Default Konstruktor
     Board();
 
-    ~Board() {delete[][] cells;};
+    /// Parameteres Konstruktor
+    /// @param x A palya szelessege
+    /// @param y A palya magassaga
+    /// @param diff A palyan talalhato akna mezok aranya (0.0 - 1.0)
+    Board(int x, int y, double diff);
+
+    ~Board();
 };
 
 

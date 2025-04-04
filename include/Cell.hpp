@@ -33,6 +33,9 @@ public:
     /// Felfedi a cellat
     /// @return A felfedett cella akna voltat
     bool Visit();
+    /// Visszaadja, hogy az adott cella Akna-e
+    /// @return isBomb erteke
+    bool getIsBomb() {return isBomb;}
     /// Beallitja a neigbourCount erteket
     /// @param n A szomszedos aknak szama
     void setNeighbourCount(const int n) {neighbourCount = n;}
