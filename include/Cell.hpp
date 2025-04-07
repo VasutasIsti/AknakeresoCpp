@@ -35,7 +35,10 @@ public:
     bool Visit();
     /// Visszaadja, hogy az adott cella Akna-e
     /// @return isBomb erteke
-    bool getIsBomb() {return isBomb;}
+    bool getIsBomb() const {return isBomb;}
+    /// Visszaadja, hogy a cella fel let-e mar fedezve
+    /// @return isVisited erteke
+    bool getIsVisited() const {return isVisited;}
     /// Beallitja a neigbourCount erteket
     /// @param n A szomszedos aknak szama
     void setNeighbourCount(const int n) {neighbourCount = n;}

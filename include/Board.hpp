@@ -8,6 +8,7 @@
 #include <cmath>
 #include <iostream>
 #include <memory>
+#include <vector>
 
 #include "Cell.hpp"
 
@@ -30,12 +31,14 @@ class Board {
     /// @param x Az oszlop sorszama
     /// @param y A sor sorszama
     /// @return Jok-e az indexek
-    bool isOnBoard(int x, int y) const;
+    bool isOnBoard(const int x, const int y) const;
     /// Megszamolja, hany akna szomszedja van
     /// @param x Az oszlop sorszama
     /// @param y A sor sorszama
     /// @return A szomszedos akna mezok szamat
-    int NeighbourCount(int x, int y) const;
+    int neighbourCount( int x, int y) const;
+    bool isEmptyListed(int x, int y, const std::vector<std::array<int, 2>>& empties) const;
+
 public:
 
     /// Default Konstruktor
@@ -46,6 +49,11 @@ public:
     /// @param y A palya magassaga
     /// @param diff A palyan talalhato akna mezok aranya (0.0 - 1.0)
     Board(int x, int y, double diff);
+
+    /// Rekurzivan vegignezi
+    /// @param x Az oszlop sorszama
+    /// @param y A sor sorszama
+    void CheckAdjacents(int x, int y, std::vector<std::array<int, 2>>& empties) const;
 
     ~Board();
 };
