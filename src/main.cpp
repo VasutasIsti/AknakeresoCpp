@@ -1,10 +1,8 @@
 #include <iostream>
+#include "game.hpp"
 
-
-// Amiket ugymond kotelezo. A pelda NHF fajlaibol all, ezek elvileg 2022-es modositasuk, remelem ez az a verzio ami kell
-#include "Cell.hpp"
-#include "memtrace.h"
-
+// Amiket ugymond kotelezo. A pelda NHF fajlaibol all,
+// ezek elvileg 2022-es modositasuk, remelem ez az a verzio ami kell
 #define MEMTRACE
 
 int main() {
