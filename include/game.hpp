@@ -3,6 +3,7 @@
 
 #include "board.hpp"
 #include "timer.h"
+#include "undo.hpp"
 
 
 enum GameState {
@@ -16,11 +17,13 @@ class Game {
     Timer timer;
     std::string username;
     GameState state;
+    UndoHandler undo;
+    bool undoEnabled;
     int flagsRemaining;
     int notVisited;
 public:
     Game();
-    Game(int x, int y, double diff, std::string username);
+    Game(int x, int y, double diff, std::string username, bool undo = false);
 
 
     // A fo, jatekmenetbeli funkciok
