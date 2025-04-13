@@ -46,6 +46,8 @@ public:
     /// @param diff A palyan talalhato akna mezok aranya (0.0 - 1.0)
     Board(int x, int y, double diff);
 
+    Board& operator=(const Board& rhs_b);
+
     /// Visszaadja a palya teljes meretet
     int Size() const {return sizeX * sizeY;}
     /// A palya nehezsegebol szamolja ki az aknak szamat

@@ -21,11 +21,13 @@ public:
     /// Akna konstruktor\n
     /// Akna cellak neighbourCount-ja alapertelmezetten -1
     /// @param isBomb Az adott cella Akna legyen-e
-    Cell(bool isBomb) : isBomb(isBomb), isFlaged(false), isVisited(false), neighbourCount(-1) {};
+    explicit Cell(bool isBomb) : isBomb(isBomb), isFlaged(false), isVisited(false), neighbourCount(-1) {};
     /// Egyszeru konstruktor\n
     /// Ha esetleg mar tudhato a cella osszes szomszedjanak Akna volta
     /// @param neighbourCount Az adott cellanak hany Akna szomszedja van
-    Cell(int neighbourCount);
+    explicit Cell(int neighbourCount);
+
+    Cell& operator=(const Cell& cell);
 
     /// Megvaltoztatja a cella zaszlozasi allapotat
     /// @return A zaszla beallitas utani allapotat

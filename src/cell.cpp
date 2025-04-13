@@ -7,6 +7,14 @@ Cell::Cell(int neighbourCount) : isBomb(false), isFlaged(false), isVisited(false
     this->neighbourCount = neighbourCount;
 }
 
+Cell& Cell::operator=(const Cell& cell) {
+    isBomb = cell.GetIsBomb();
+    isFlaged = cell.GetIsFlaged();
+    isVisited = cell.GetIsVisited();
+    neighbourCount = cell.GetNeighbourCount();
+    return *this;
+}
+
 bool Cell::Flag() {
     isFlaged = !isFlaged;
     return isFlaged;

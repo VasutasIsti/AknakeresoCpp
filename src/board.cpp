@@ -80,8 +80,32 @@ std::ostream& operator<<(std::ostream& os, const Board& board) {
 }
 
 std::istream& operator>>(std::istream& is, Board& board) {
-    char* line = nullptr;
-    is.getline(line, 256);
+    std::string line;
+
+    std::getline(is, line);
+    int x = std::stoi(line.substr(6));
+    if (x < 0)
+        throw "Invalid data!";
+    std::getline(is, line);
+    int y = std::stoi(line.substr(6));
+    if (y < 0)
+        throw "Invalid data!";
+    std::getline(is, line);
+    double diff = std::stod(line.substr(11));
+    if (diff < 0.0 || diff > 1.0)
+        throw "Invalid data!";
+
+    board.~Board();
+    board.sizeX = x;
+    board.sizeY = y;
+    board.difficulty = diff;
+    board.cells = new Cell*[board.sizeX];
+    for (int i = 0; i < board.sizeX; i++)
+        board.cells[i] = new Cell[board.sizeY];
+
+    for (int i = 0; i < board.sizeX; i++)
+        for (int j = 0; j < board.sizeY; j++)
+            is >> board.cells[i][j];
 
     return is;
 }
