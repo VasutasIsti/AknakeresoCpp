@@ -60,3 +60,28 @@ Board::~Board() {
         delete[] cells[i];
     delete[] cells;
 }
+
+int Board::NeighbouringFlags(const int x, const int y) const {
+    int sum = 0;
+    for (int i = x-1; i <= x+1; i++)
+        for (int j = y-1; j <= y+1; j++)
+            if (!(i==x && j == x) && IsOnBoard(i, j) && cells[i][j].GetIsVisited())
+                sum++;
+    return sum;
+}
+
+std::ostream& operator<<(std::ostream& os, const Board& board) {
+    os << "sizeX=" << board.sizeX << "\nsizeY=" << board.sizeY
+       << "\ndifficulty=" << board.difficulty << "\n";
+    for (int i = 0; i < board.sizeX; i++)
+        for (int j = 0; j < board.sizeY; j++)
+            os << board.cells[i][j];
+    return os;
+}
+
+std::istream& operator>>(std::istream& is, Board& board) {
+    char* line = nullptr;
+    is.getline(line, 256);
+
+    return is;
+}

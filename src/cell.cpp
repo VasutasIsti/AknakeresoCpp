@@ -21,8 +21,7 @@ std::ostream & operator<<(std::ostream &os, const Cell &cell) {
     os << '{' << cell.isBomb << ',' <<
                  cell.isFlaged << ',' <<
                  cell.isVisited << ',' <<
-                 cell.neighbourCount << '}' <<
-                 std::endl;
+                 cell.neighbourCount << '}';
     return os;
 }
 

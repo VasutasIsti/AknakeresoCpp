@@ -8,7 +8,7 @@
 int main() {
     Cell cell1 = Cell(true);
     Cell cell2 = Cell(5);
-    std::cout << cell1 << cell2 << std::endl;
+    std::cout << cell1 << std::endl << cell2 << std::endl;
     Cell cell3;
     std::cin >> cell3;
     std::cout << cell3 << std::endl;
