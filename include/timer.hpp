@@ -9,9 +9,10 @@
 /// akkor le kell (vagy akkor le lesz) frissitve, igy nem kell kulon
 /// szalon futnia.
 class Timer {
-    time_t t0;
-    time_t t;
+    time_t t0;  ///< Az idozito indulasanak pillanata
+    time_t t;   ///< Az "aktualis" ido
 public:
+    /// Default Konstruktor
     Timer() : t0(time(nullptr)), t(t0) {};
 
     /// Jatek ujratoltese eseten elcsuszott ido ujra allitasa
@@ -20,8 +21,9 @@ public:
     /// frissiti a t-ben tarolt "aktualis", valamint visszaadja az eltelt idot
     /// @return A timer inicializalasa ota eltelt ido (time_t)
     time_t GetDeltaTime();
-
+    /// Kiiros fuggveny ostream-mekre
     friend std::ostream& operator<<(std::ostream& os, const Timer& t);
+    /// Beolvaso fuggveny istream-mekrol
     friend std::istream& operator>>(std::istream& is, Timer& t);
 };
 

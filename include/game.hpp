@@ -12,28 +12,54 @@ enum GameState {
     LOSE
 };
 
+/// Maga a jatek, a jatekos altal eloidezheto esemenyeket megvalosito fuggvenyek,
+/// jatek statisztikak lakohelye.
 class Game {
-    UndoHandler undo;
-    Board board;
-    Timer timer;
-    std::string username;
-    GameState state;
-    int flagsRemaining;
-    int notVisiteds;
+    UndoHandler undo;   ///< Visszavonas-kezelo
+    Board board;    ///< A cellakat tartalmazo palya
+    Timer timer;    ///< Egyszerusitett idomero
+    std::string username;   ///< A felhasznalo neve, def. "Player"
+    GameState state;    ///< Milyen allapotban van a jatek
+    int flagsRemaining; ///< Hany zaszlot lehet meg elhelyezni a palyan
+    int notVisiteds;    ///< Meg hany cellat kell felfedezni/lezaszlozni
 public:
+    /// Default Konstruktor
     Game();
+    /// Teljes Konstruktor
+    /// @param x a palya szelessege
+    /// @param y a palya magassaga
+    /// @param diff az aknak aranya (0.0 - 1.0)
+    /// @param username A felhasznalo neve
+    /// @param undoEnabled Be van-e kapcsolva a visszavonas? Ha igen, akkor a jatekot nem lehet befejezni.
     Game(int x, int y, double diff, std::string username, bool undoEnabled = false);
 
 
     // A fo, jatekmenetbeli funkciok
+
+    /// Egy cella zaszlozottsaganak megvaltoztatasa
+    /// @param x Az oszlop sorszama
+    /// @param y A sor sorszama
     void Flaging(int x, int y);
+    /// Egy cella felfedezese
+    /// @param x Az oszlop sorszama
+    /// @param y A sor sorszama
     void VisitCell(int x, int y);
+    /// Mar felfedezett, akna szomszednyi zaszlos szomszeddal rendelkezo cellara kattintva
+    /// felfedezi a szomszedos nem felfedezett, nem zaszlos cellakat. Ha az ures cella, akkor
+    /// felderiti az egybefuggo ures teruletet is.
+    /// @param x Az oszlop sorszama
+    /// @param y A sor sorszama
     void VisitedSelected(int x, int y);
+    /// Visszavonas eseten a Game szintjen elvegzendo feladatokat valositja meg.
     void Undo();
+    /// Nyeres eseten szukseges feladatok megvalositasa
     void Win();
+    /// Vesztes eseten szukseges feladatok megvalositasa
     void Lose();
 
+    /// Kiiro fuggveny ostream-mekre
     friend std::ostream& operator<<(std::ostream& os, const Game& game);
+    /// Beolvaso fuggveny istream-mekkel
     friend std::istream& operator>>(std::istream& is, Game& game);
 
 };
