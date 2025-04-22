@@ -2,7 +2,7 @@
 #define GAME_H
 
 #include "board.hpp"
-#include "timer.h"
+#include "timer.hpp"
 #include "undo.hpp"
 
 
@@ -13,23 +13,23 @@ enum GameState {
 };
 
 class Game {
+    UndoHandler undo;
     Board board;
     Timer timer;
     std::string username;
     GameState state;
-    UndoHandler undo;
-    bool undoEnabled;
     int flagsRemaining;
-    int notVisited;
+    int notVisiteds;
 public:
     Game();
-    Game(int x, int y, double diff, std::string username, bool undo = false);
+    Game(int x, int y, double diff, std::string username, bool undoEnabled = false);
 
 
     // A fo, jatekmenetbeli funkciok
     void Flaging(int x, int y);
     void VisitCell(int x, int y);
     void VisitedSelected(int x, int y);
+    void Undo();
     void Win();
     void Lose();
 

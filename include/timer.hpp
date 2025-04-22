@@ -2,8 +2,9 @@
 #define TIMER_H
 
 #include <ctime>
+#include <iostream>
 
-/// Egy manualisabb idozito, ami a rendszeridot hasznalja.
+/// Egy manualisabb idomero, ami a rendszeridot hasznalja.
 /// A manualis resze abbol adodik, hogy amikor kell konkret ido adat,
 /// akkor le kell (vagy akkor le lesz) frissitve, igy nem kell kulon
 /// szalon futnia.
@@ -20,6 +21,8 @@ public:
     /// @return A timer inicializalasa ota eltelt ido (time_t)
     time_t GetDeltaTime();
 
+    friend std::ostream& operator<<(std::ostream& os, const Timer& t);
+    friend std::istream& operator>>(std::istream& is, Timer& t);
 };
 
 #endif //TIMER_H
