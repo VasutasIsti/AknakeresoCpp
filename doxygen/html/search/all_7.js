@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['game_0',['Game',['../class_game.html',1,'Game'],['../class_game.html#ad59df6562a58a614fda24622d3715b65',1,'Game::Game()'],['../class_game.html#a5c82f4feb5e7d7226f578c71c374b04f',1,'Game::Game(int x, int y, double diff, std::string username)']]],
+  ['game_0',['Game',['../class_game.html',1,'Game'],['../class_game.html#ad59df6562a58a614fda24622d3715b65',1,'Game::Game()'],['../class_game.html#a30eb792e0a32ba2b1f18aeb5ecddd2d3',1,'Game::Game(int x, int y, double diff, std::string username, bool undoEnabled=false)']]],
   ['game_2ecpp_1',['game.cpp',['../game_8cpp.html',1,'']]],
   ['game_2ehpp_2',['game.hpp',['../game_8hpp.html',1,'']]],
   ['gamestate_3',['GameState',['../game_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285',1,'game.hpp']]],

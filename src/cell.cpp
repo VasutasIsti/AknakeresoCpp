@@ -2,6 +2,10 @@
 
 #include <iomanip>
 
+UndoHandler defUH;
+
+UndoHandler& Cell::undo = defUH;
+
 Cell::Cell(int neighbourCount)
     : isBomb(false), isFlaged(false), isVisited(false) {
     if (neighbourCount < 0 || neighbourCount > 8)

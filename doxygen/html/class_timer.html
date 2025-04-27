@@ -104,27 +104,38 @@ $(function(){initNavTree('class_timer.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="class_timer-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Timer Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="timer_8h_source.html">timer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="timer_8hpp_source.html">timer.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5f16e8da27d2a5a5242dead46de05d97" id="r_a5f16e8da27d2a5a5242dead46de05d97"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f16e8da27d2a5a5242dead46de05d97">Timer</a> ()</td></tr>
+<tr class="memdesc:a5f16e8da27d2a5a5242dead46de05d97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Konstruktor.  <br /></td></tr>
 <tr class="separator:a5f16e8da27d2a5a5242dead46de05d97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a917bd51dcbcd79c1f88399e8931b23a6" id="r_a917bd51dcbcd79c1f88399e8931b23a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a917bd51dcbcd79c1f88399e8931b23a6">CalibrateTime</a> ()</td></tr>
 <tr class="memdesc:a917bd51dcbcd79c1f88399e8931b23a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jatek ujratoltese eseten elcsuszott ido ujra allitasa.  <br /></td></tr>
 <tr class="separator:a917bd51dcbcd79c1f88399e8931b23a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fd1143da56c263da4908e27ade2f30d" id="r_a9fd1143da56c263da4908e27ade2f30d"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fd1143da56c263da4908e27ade2f30d">GetDeltaTime</a> ()</td></tr>
 <tr class="separator:a9fd1143da56c263da4908e27ade2f30d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a43c35ce158289f116f03d284367b9da9" id="r_a43c35ce158289f116f03d284367b9da9"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43c35ce158289f116f03d284367b9da9">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="class_timer.html">Timer</a> &amp;t)</td></tr>
+<tr class="memdesc:a43c35ce158289f116f03d284367b9da9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kiiros fuggveny ostream-mekre.  <br /></td></tr>
+<tr class="separator:a43c35ce158289f116f03d284367b9da9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d26602309f7494ba384ede19d01de35" id="r_a4d26602309f7494ba384ede19d01de35"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d26602309f7494ba384ede19d01de35">operator&gt;&gt;</a> (std::istream &amp;is, <a class="el" href="class_timer.html">Timer</a> &amp;t)</td></tr>
+<tr class="memdesc:a4d26602309f7494ba384ede19d01de35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Beolvaso fuggveny istream-mekrol.  <br /></td></tr>
+<tr class="separator:a4d26602309f7494ba384ede19d01de35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Egy manualisabb idozito, ami a rendszeridot hasznalja. A manualis resze abbol adodik, hogy amikor kell konkret ido adat, akkor le kell (vagy akkor le lesz) frissitve, igy nem kell kulon szalon futnia. </p>
+<div class="textblock"><p>Egy manualisabb idomero, ami a rendszeridot hasznalja. A manualis resze abbol adodik, hogy amikor kell konkret ido adat, akkor le kell (vagy akkor le lesz) frissitve, igy nem kell kulon szalon futnia. </p>
 
-<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00010">10</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="timer_8hpp_source.html#l00011">11</a> of file <a class="el" href="timer_8hpp_source.html">timer.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5f16e8da27d2a5a5242dead46de05d97" name="a5f16e8da27d2a5a5242dead46de05d97"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f16e8da27d2a5a5242dead46de05d97">&#9670;&#160;</a></span>Timer()</h2>
@@ -149,7 +160,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="timer_8h_source.html#l00014">14</a> of file <a class="el" href="timer_8h_source.html">timer.h</a>.</p>
+<p>Default Konstruktor. </p>
+
+<p class="definition">Definition at line <a class="el" href="timer_8hpp_source.html#l00016">16</a> of file <a class="el" href="timer_8hpp_source.html">timer.hpp</a>.</p>
 
 </div>
 </div>
@@ -171,6 +184,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Jatek ujratoltese eseten elcsuszott ido ujra allitasa. </p>
 
+<p class="definition">Definition at line <a class="el" href="timer_8cpp_source.html#l00003">3</a> of file <a class="el" href="timer_8cpp_source.html">timer.cpp</a>.</p>
+
 </div>
 </div>
 <a id="a9fd1143da56c263da4908e27ade2f30d" name="a9fd1143da56c263da4908e27ade2f30d"></a>
@@ -189,10 +204,80 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>frissiti a t-ben tarolt "aktualis", valamint visszaadja az eltelt idot </p><dl class="section return"><dt>Returns</dt><dd>A timer inicializalasa ota eltelt ido (time_t) </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="timer_8cpp_source.html#l00009">9</a> of file <a class="el" href="timer_8cpp_source.html">timer.cpp</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/<a class="el" href="timer_8h_source.html">timer.h</a></li>
+<h2 class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="a43c35ce158289f116f03d284367b9da9" name="a43c35ce158289f116f03d284367b9da9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43c35ce158289f116f03d284367b9da9">&#9670;&#160;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;</td>          <td class="paramname"><span class="paramname"><em>os</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_timer.html">Timer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Kiiros fuggveny ostream-mekre. </p>
+
+<p class="definition">Definition at line <a class="el" href="timer_8cpp_source.html#l00014">14</a> of file <a class="el" href="timer_8cpp_source.html">timer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4d26602309f7494ba384ede19d01de35" name="a4d26602309f7494ba384ede19d01de35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d26602309f7494ba384ede19d01de35">&#9670;&#160;</a></span>operator&gt;&gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::istream &amp; operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;</td>          <td class="paramname"><span class="paramname"><em>is</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_timer.html">Timer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Beolvaso fuggveny istream-mekrol. </p>
+
+<p class="definition">Definition at line <a class="el" href="timer_8cpp_source.html#l00019">19</a> of file <a class="el" href="timer_8cpp_source.html">timer.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>C:/Users/istin/Desktop/BME/Prog2/NHF/include/<a class="el" href="timer_8hpp_source.html">timer.hpp</a></li>
+<li>C:/Users/istin/Desktop/BME/Prog2/NHF/src/<a class="el" href="timer_8cpp_source.html">timer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

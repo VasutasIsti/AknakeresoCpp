@@ -112,13 +112,15 @@ $(function(){initNavTree('functions.html',''); initResizable(true); });
 
 <h3><a id="index_b" name="index_b"></a>- b -</h3><ul>
 <li>begin()&#160;:&#160;<a class="el" href="structgtest__lite_1_1_test.html#a2227b70fcc5dfb3c326bf117dd8f7e79">gtest_lite::Test</a></li>
-<li>Board()&#160;:&#160;<a class="el" href="class_board.html#a9ee491d4fea680cf69b033374a9fdfcb">Board</a></li>
+<li>Board()&#160;:&#160;<a class="el" href="class_board.html#a680ebd80b716c197f9ca30deac9e84a1">Board</a></li>
 </ul>
 
 
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
 <li>CalibrateTime()&#160;:&#160;<a class="el" href="class_timer.html#a917bd51dcbcd79c1f88399e8931b23a6">Timer</a></li>
 <li>Cell()&#160;:&#160;<a class="el" href="class_cell.html#a394510643e8664cf12b5efaf5cb99f71">Cell</a></li>
+<li>CellChange()&#160;:&#160;<a class="el" href="class_cell_change.html#a087099a1057adf7c364d76e47b465be3">CellChange</a></li>
+<li>changedByPlayer&#160;:&#160;<a class="el" href="class_cell_change.html#ab68a09ca18fd79d65aa85b36d00a0068">CellChange</a></li>
 <li>CheckAdjacents()&#160;:&#160;<a class="el" href="class_board.html#a74ce6629db8dac80db2457083e8eb487">Board</a></li>
 <li>convertable&#160;:&#160;<a class="el" href="struct___is___types.html#aef853f15f013611d0890cb6fc408ae47">_Is_Types&lt; F, T &gt;</a></li>
 </ul>
@@ -130,6 +132,7 @@ $(function(){initNavTree('functions.html',''); initResizable(true); });
 
 
 <h3><a id="index_e" name="index_e"></a>- e -</h3><ul>
+<li>EnableUndo()&#160;:&#160;<a class="el" href="class_undo_handler.html#a745e52fe35510ed5aef9720474a11675">UndoHandler</a></li>
 <li>end()&#160;:&#160;<a class="el" href="structgtest__lite_1_1_test.html#a86d41ffed05f53653fb27b918764a44e">gtest_lite::Test</a></li>
 <li>expect()&#160;:&#160;<a class="el" href="structgtest__lite_1_1_test.html#a2de71946be5b3dc7f03c99868785c1de">gtest_lite::Test</a></li>
 </ul>
@@ -140,6 +143,7 @@ $(function(){initNavTree('functions.html',''); initResizable(true); });
 <li>fail()&#160;:&#160;<a class="el" href="structgtest__lite_1_1_test.html#aadbfd0f53c56d975f793602996631195">gtest_lite::Test</a></li>
 <li>failed&#160;:&#160;<a class="el" href="structgtest__lite_1_1_test.html#a4fb6ee7bd903717d970e3f0504cdeeab">gtest_lite::Test</a></li>
 <li>Flag()&#160;:&#160;<a class="el" href="class_cell.html#a59a9f38fb175e7107d088eaa7550c2e2">Cell</a></li>
+<li>flagedOrVisited&#160;:&#160;<a class="el" href="class_cell_change.html#a4066181a3eea38609ac7e94cb658df8f">CellChange</a></li>
 <li>Flaging()&#160;:&#160;<a class="el" href="class_game.html#a0fe26e2b608b3f09cc2a5377fc9c1e87">Game</a></li>
 </ul>
 
@@ -156,6 +160,8 @@ $(function(){initNavTree('functions.html',''); initResizable(true); });
 
 
 <h3><a id="index_l" name="index_l"></a>- l -</h3><ul>
+<li>LogFlaging()&#160;:&#160;<a class="el" href="class_undo_handler.html#a2ac179aba50109d94f41fdef53d37fb4">UndoHandler</a></li>
+<li>LogVisiting()&#160;:&#160;<a class="el" href="class_undo_handler.html#ac3c19ded58829ab6353440555d112bd0">UndoHandler</a></li>
 <li>Lose()&#160;:&#160;<a class="el" href="class_game.html#a05af06bf0971e351184b90898387e131">Game</a></li>
 </ul>
 
@@ -167,8 +173,9 @@ $(function(){initNavTree('functions.html',''); initResizable(true); });
 
 
 <h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
-<li>operator&lt;&lt;&#160;:&#160;<a class="el" href="class_board.html#ab371c3ae6aa377e0cbd3da03862935a3">Board</a>, <a class="el" href="class_cell.html#ad7ee2aa31bc68e6acb563f13533fb0fe">Cell</a>, <a class="el" href="class_game.html#aabae0ecb266ff0bd9f48a1f5f9e316e9">Game</a></li>
-<li>operator&gt;&gt;&#160;:&#160;<a class="el" href="class_board.html#a96b4697d7cd95eb4eb2ef74add316e50">Board</a>, <a class="el" href="class_cell.html#ab4aad2de64545bc561527b373f636e6d">Cell</a>, <a class="el" href="class_game.html#a1a969ba7738add74cbd75e85e76bca2f">Game</a></li>
+<li>operator&lt;&lt;&#160;:&#160;<a class="el" href="class_board.html#ab371c3ae6aa377e0cbd3da03862935a3">Board</a>, <a class="el" href="class_cell.html#ad7ee2aa31bc68e6acb563f13533fb0fe">Cell</a>, <a class="el" href="class_game.html#aabae0ecb266ff0bd9f48a1f5f9e316e9">Game</a>, <a class="el" href="class_timer.html#a43c35ce158289f116f03d284367b9da9">Timer</a>, <a class="el" href="class_undo_handler.html#afbb2498770024e9bf0ce794993f83c82">UndoHandler</a></li>
+<li>operator=()&#160;:&#160;<a class="el" href="class_board.html#a57a4317cebaae4f6879856262cf9caae">Board</a>, <a class="el" href="class_cell.html#a38f8f6155e7e3f2d0d1c3f521d27f855">Cell</a></li>
+<li>operator&gt;&gt;&#160;:&#160;<a class="el" href="class_board.html#a96b4697d7cd95eb4eb2ef74add316e50">Board</a>, <a class="el" href="class_cell.html#ab4aad2de64545bc561527b373f636e6d">Cell</a>, <a class="el" href="class_game.html#a1a969ba7738add74cbd75e85e76bca2f">Game</a>, <a class="el" href="class_timer.html#a4d26602309f7494ba384ede19d01de35">Timer</a>, <a class="el" href="class_undo_handler.html#a9126ef547ebfd5031ada838298a818d1">UndoHandler</a></li>
 <li>os&#160;:&#160;<a class="el" href="structgtest__lite_1_1_test.html#a499d76ef83538dcb5389f87bf6e8658c">gtest_lite::Test</a></li>
 <li>ostreamRedir()&#160;:&#160;<a class="el" href="classgtest__lite_1_1ostream_redir.html#adf5823af2312c504c0306b77d43f2e71">gtest_lite::ostreamRedir</a></li>
 </ul>
@@ -176,6 +183,7 @@ $(function(){initNavTree('functions.html',''); initResizable(true); });
 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>SetNeighbourCount()&#160;:&#160;<a class="el" href="class_cell.html#ad262ea93d1d4439b5d1ec729b2e2503d">Cell</a></li>
+<li>SetUndoHandler()&#160;:&#160;<a class="el" href="class_cell.html#a6b717c87d0a6f8c1c06d6f40e54135b6">Cell</a></li>
 <li>Size()&#160;:&#160;<a class="el" href="class_board.html#a87c85e4cdcb1e62dc1afd471e0660ec5">Board</a></li>
 <li>status&#160;:&#160;<a class="el" href="structgtest__lite_1_1_test.html#a59a9a7f0ef7867af604ce5678f7a2c13">gtest_lite::Test</a></li>
 <li>sum&#160;:&#160;<a class="el" href="structgtest__lite_1_1_test.html#a6da678d43b72b9e2bff1c99e1d3c48f5">gtest_lite::Test</a></li>
@@ -188,6 +196,11 @@ $(function(){initNavTree('functions.html',''); initResizable(true); });
 </ul>
 
 
+<h3><a id="index_u" name="index_u"></a>- u -</h3><ul>
+<li>Undo()&#160;:&#160;<a class="el" href="class_board.html#ad11f39c74ed396f6c388851b808f0e47">Board</a>, <a class="el" href="class_cell.html#af41b3f1e5c977ef599c8dcc322b0e53b">Cell</a>, <a class="el" href="class_game.html#a9acf908745745a6576c729e620136367">Game</a>, <a class="el" href="class_undo_handler.html#a5dea9122e9cc7ee0fdebb3604b4c33d9">UndoHandler</a></li>
+</ul>
+
+
 <h3><a id="index_v" name="index_v"></a>- v -</h3><ul>
 <li>Visit()&#160;:&#160;<a class="el" href="class_cell.html#a1e148b3966cebedbd57d35b98aef5cc5">Cell</a></li>
 <li>VisitCell()&#160;:&#160;<a class="el" href="class_game.html#a8c3f69d8405eaf234152754141b01550">Game</a></li>
@@ -197,6 +210,16 @@ $(function(){initNavTree('functions.html',''); initResizable(true); });
 
 <h3><a id="index_w" name="index_w"></a>- w -</h3><ul>
 <li>Win()&#160;:&#160;<a class="el" href="class_game.html#a706a8a60e8e93da5a5c48a4db0e1b194">Game</a></li>
+</ul>
+
+
+<h3><a id="index_x" name="index_x"></a>- x -</h3><ul>
+<li>x&#160;:&#160;<a class="el" href="class_cell_change.html#a13859e1a1917f40311e22052c29d2904">CellChange</a></li>
+</ul>
+
+
+<h3><a id="index_y" name="index_y"></a>- y -</h3><ul>
+<li>y&#160;:&#160;<a class="el" href="class_cell_change.html#a097d9940e18145dba2955d3880a379f9">CellChange</a></li>
 </ul>
 
 

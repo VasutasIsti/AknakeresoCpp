@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['vagy_20módosítani_0',['Nem célszerű közvetlenül használni, vagy módosítani',['../gtest__lite_8h.html#autotoc_md0',1,'']]],
-  ['visit_1',['Visit',['../class_cell.html#a1e148b3966cebedbd57d35b98aef5cc5',1,'Cell']]],
-  ['visitcell_2',['VisitCell',['../class_game.html#a8c3f69d8405eaf234152754141b01550',1,'Game']]],
-  ['visitedselected_3',['VisitedSelected',['../class_game.html#aa14c099aafe9c03368325aff4fba08a5',1,'Game']]]
+  ['undo_0',['Undo',['../class_board.html#ad11f39c74ed396f6c388851b808f0e47',1,'Board::Undo()'],['../class_cell.html#af41b3f1e5c977ef599c8dcc322b0e53b',1,'Cell::Undo()'],['../class_game.html#a9acf908745745a6576c729e620136367',1,'Game::Undo()'],['../class_undo_handler.html#a5dea9122e9cc7ee0fdebb3604b4c33d9',1,'UndoHandler::Undo()']]],
+  ['undo_2ecpp_1',['undo.cpp',['../undo_8cpp.html',1,'']]],
+  ['undo_2ehpp_2',['undo.hpp',['../undo_8hpp.html',1,'']]],
+  ['undohandler_3',['UndoHandler',['../class_undo_handler.html',1,'']]]
 ];

@@ -34,6 +34,17 @@ public:
     Game(int x, int y, double diff, std::string username, bool undoEnabled = false);
 
 
+    // CSAK TESZTELESRE
+    UndoHandler& getUndoHandler() { return undo; }
+    Board& getBoard() { return board; }
+    Timer& getTimer() { return timer; }
+    std::string getUsername() const { return username; }
+    GameState getState() const { return state; }
+    int getFlagsRemaining() const { return flagsRemaining; }
+    int getNotVisiteds() const { return notVisiteds; }
+
+
+
     // A fo, jatekmenetbeli funkciok
 
     /// Egy cella zaszlozottsaganak megvaltoztatasa

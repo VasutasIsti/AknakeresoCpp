@@ -25,7 +25,6 @@
 var NAVTREE =
 [
   [ "Aknakereso", "index.html", [
-    [ "Aknakereső C++ alapokon", "md__r_e_a_d_m_e.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -59,7 +58,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_c_make_c_compiler_id_8c.html"
+"_c_make_c_compiler_id_8c.html",
+"timer_8cpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

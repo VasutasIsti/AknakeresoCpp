@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['operator_3c_3c_0',['operator&lt;&lt;',['../cell_8cpp.html#ad7ee2aa31bc68e6acb563f13533fb0fe',1,'cell.cpp']]],
-  ['operator_3e_3e_1',['operator&gt;&gt;',['../cell_8cpp.html#ab4aad2de64545bc561527b373f636e6d',1,'cell.cpp']]],
-  ['ostreamredir_2',['ostreamRedir',['../classgtest__lite_1_1ostream_redir.html#adf5823af2312c504c0306b77d43f2e71',1,'gtest_lite::ostreamRedir']]]
+  ['operator_3c_3c_0',['operator&lt;&lt;',['../board_8cpp.html#ab371c3ae6aa377e0cbd3da03862935a3',1,'operator&lt;&lt;(std::ostream &amp;os, const Board &amp;board):&#160;board.cpp'],['../cell_8cpp.html#ad7ee2aa31bc68e6acb563f13533fb0fe',1,'operator&lt;&lt;(std::ostream &amp;os, const Cell &amp;cell):&#160;cell.cpp'],['../game_8cpp.html#aabae0ecb266ff0bd9f48a1f5f9e316e9',1,'operator&lt;&lt;(std::ostream &amp;os, const Game &amp;game):&#160;game.cpp'],['../timer_8cpp.html#a8e125e38ee1ec31b73d2e322c1ec93f2',1,'operator&lt;&lt;(std::ostream &amp;os, const Timer &amp;timer):&#160;timer.cpp'],['../undo_8cpp.html#afbb2498770024e9bf0ce794993f83c82',1,'operator&lt;&lt;(std::ostream &amp;os, const UndoHandler &amp;undoHandler):&#160;undo.cpp']]],
+  ['operator_3d_1',['operator=',['../class_board.html#a57a4317cebaae4f6879856262cf9caae',1,'Board::operator=()'],['../class_cell.html#a38f8f6155e7e3f2d0d1c3f521d27f855',1,'Cell::operator=()']]],
+  ['operator_3e_3e_2',['operator&gt;&gt;',['../board_8cpp.html#a96b4697d7cd95eb4eb2ef74add316e50',1,'operator&gt;&gt;(std::istream &amp;is, Board &amp;board):&#160;board.cpp'],['../cell_8cpp.html#ab4aad2de64545bc561527b373f636e6d',1,'operator&gt;&gt;(std::istream &amp;is, Cell &amp;cell):&#160;cell.cpp'],['../timer_8cpp.html#ab926bde8414b02bad270629d7d8ebff7',1,'operator&gt;&gt;(std::istream &amp;is, Timer &amp;timer):&#160;timer.cpp'],['../undo_8cpp.html#a9126ef547ebfd5031ada838298a818d1',1,'operator&gt;&gt;(std::istream &amp;is, UndoHandler &amp;undoHandler):&#160;undo.cpp']]],
+  ['ostreamredir_3',['ostreamRedir',['../classgtest__lite_1_1ostream_redir.html#adf5823af2312c504c0306b77d43f2e71',1,'gtest_lite::ostreamRedir']]]
 ];

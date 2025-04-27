@@ -5,5 +5,6 @@ var searchData=
   ['fail_2',['fail',['../structgtest__lite_1_1_test.html#aadbfd0f53c56d975f793602996631195',1,'gtest_lite::Test']]],
   ['failed_3',['failed',['../structgtest__lite_1_1_test.html#a4fb6ee7bd903717d970e3f0504cdeeab',1,'gtest_lite::Test']]],
   ['flag_4',['Flag',['../class_cell.html#a59a9f38fb175e7107d088eaa7550c2e2',1,'Cell']]],
-  ['flaging_5',['Flaging',['../class_game.html#a0fe26e2b608b3f09cc2a5377fc9c1e87',1,'Game']]]
+  ['flagedorvisited_5',['flagedOrVisited',['../class_cell_change.html#a4066181a3eea38609ac7e94cb658df8f',1,'CellChange']]],
+  ['flaging_6',['Flaging',['../class_game.html#a0fe26e2b608b3f09cc2a5377fc9c1e87',1,'Game']]]
 ];

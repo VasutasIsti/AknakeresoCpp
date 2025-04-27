@@ -35,7 +35,7 @@ class Board {
     /// cella mar meg lett-e latogatva az ures teruleten.
     /// @param x Az oszlop sorszama
     /// @param y A sor sorszama
-    /// @param empites Az ures cellakat gyujto lista
+    /// @param empties Az ures cellakat gyujto lista
     static bool IsEmptyListed(int x, int y, const std::vector<std::array<int, 2>>& empties) ;
     /// Megszamolja a cella koruli aknak szamat (0-8)
     /// @param x Az oszlop sorszama
@@ -60,6 +60,9 @@ public:
     /// @param diff A palyan talalhato akna mezok aranya (0.0 - 1.0)
     /// @param undo A jatek visszavonas-kezelojenek referenciaja
     Board(int x, int y, double diff, UndoHandler& undo);
+
+    // CSAK TESZTELESRE
+    Cell& getCell(const int x, const int y) const {return cells[x][y];}
 
     /// Visszaadja a palya teljes meretet
     int Size() const {return sizeX * sizeY;}
