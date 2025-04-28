@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Aknakereso<span id="projectnumber">&#160;0.1</span>
+   <div id="projectname">Aknakereso<span id="projectnumber">&#160;0.2</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -107,24 +107,29 @@ $(function(){initNavTree('main_8cpp_source.html',''); initResizable(true); });
 <div class="contents">
 <a href="main_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="game_8hpp.html">game.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// Amiket ugymond kotelezo. A pelda NHF fajlaibol all,</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// ezek elvileg 2022-es modositasuk, remelem ez az a verzio ami kell</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="main_8cpp.html#aa90f3e89fc3fe477370afb9f81975081">    7</a></span><span class="preprocessor">#define MEMTRACE</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">    9</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="class_game.html">Game</a> game(5, 10, 0.3, <span class="stringliteral">&quot;Stefan&quot;</span>, <span class="keyword">true</span>);</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    std::cout &lt;&lt; game;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>}</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// Amiket ugymond kotelezo. A pelda NHF fajlaibol all,</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// ezek elvileg 2022-es modositasuk, remelem ez az a verzio ami kell</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="main_8cpp.html#aa90f3e89fc3fe477370afb9f81975081">    6</a></span><span class="preprocessor">#define MEMTRACE</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="}">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">    8</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>() {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_class" href="class_game.html">Game</a> game(5, 10, 0.3, <span class="stringliteral">&quot;Stefan&quot;</span>, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    std::cout &lt;&lt; game;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    game.<a class="code hl_function" href="class_game.html#a0fe26e2b608b3f09cc2a5377fc9c1e87">Flaging</a>(0, 0);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    std::cout &lt;&lt; game;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    game.<a class="code hl_function" href="class_game.html#a9acf908745745a6576c729e620136367">Undo</a>();</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    std::cout &lt;&lt; game;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>}</div>
 </div>
 <div class="ttc" id="aclass_game_html"><div class="ttname"><a href="class_game.html">Game</a></div><div class="ttdef"><b>Definition</b> <a href="game_8hpp_source.html#l00017">game.hpp:17</a></div></div>
+<div class="ttc" id="aclass_game_html_a0fe26e2b608b3f09cc2a5377fc9c1e87"><div class="ttname"><a href="class_game.html#a0fe26e2b608b3f09cc2a5377fc9c1e87">Game::Flaging</a></div><div class="ttdeci">void Flaging(int x, int y)</div><div class="ttdef"><b>Definition</b> <a href="game_8cpp_source.html#l00025">game.cpp:25</a></div></div>
+<div class="ttc" id="aclass_game_html_a9acf908745745a6576c729e620136367"><div class="ttname"><a href="class_game.html#a9acf908745745a6576c729e620136367">Game::Undo</a></div><div class="ttdeci">void Undo()</div><div class="ttdoc">Visszavonas eseten a Game szintjen elvegzendo feladatokat valositja meg.</div><div class="ttdef"><b>Definition</b> <a href="game_8cpp_source.html#l00042">game.cpp:42</a></div></div>
 <div class="ttc" id="agame_8hpp_html"><div class="ttname"><a href="game_8hpp.html">game.hpp</a></div></div>
-<div class="ttc" id="amain_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition</b> <a href="#l00009">main.cpp:9</a></div></div>
+<div class="ttc" id="amain_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition</b> <a href="#l00008">main.cpp:8</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

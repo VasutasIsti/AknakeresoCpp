@@ -1,10 +1,9 @@
 #include "game.hpp"
-
-#include <utility>
+#include <utility>      // string Masolasok miatt
 
 Game::Game() :
     undo(UndoHandler()),
-    board(Board(undo)),
+    board(Board()),
     timer(Timer()),
     username("Player"),
     state(INGAME),
@@ -13,7 +12,7 @@ Game::Game() :
 
 Game::Game(const int x, const int y, const double diff, std::string username, const bool undoEnabled) :
     undo(UndoHandler()),
-    board(Board(x, y, diff, undo)),
+    board(Board(x, y, diff)),
     timer(Timer()),
     username(std::move(username)),
     state(INGAME),
@@ -25,8 +24,9 @@ Game::Game(const int x, const int y, const double diff, std::string username, co
 
 void Game::Flaging(const int x, const int y) {
     undo.LogFlaging(x, y);
-
-    //TODO
+    bool flaged = board.getCell(x, y).Flag();
+    if (flaged) flagsRemaining--;
+    else        flagsRemaining++;
 }
 
 void Game::VisitCell(const int x, const int y) {
@@ -41,7 +41,7 @@ void Game::VisitedSelected(const int x, const int y) {
 
 void Game::Undo() {
     CellChange current;
-    while (current.changedByPlayer) {
+    do {
         current = undo.Undo();
         // Igaz, ha a visszavonas utan zaszlo lett a cellan
         bool flagstate = board.Undo(current);
@@ -50,7 +50,7 @@ void Game::Undo() {
             else           flagsRemaining--;
         }
         else notVisiteds++;
-    }
+    } while (current.changedByPlayer);
 }
 
 void Game::Win() {
@@ -63,6 +63,10 @@ void Game::Lose() {
     std::cout << username << " loses!\n";
 }
 
+void Game::SaveMidGame() {
+    // TODO
+}
+
 std::ostream& operator<<(std::ostream& os, const Game& game) {
     os << "username=" << game.username << "\n";
     os << "state=" << game.state << "\n";
@@ -70,7 +74,12 @@ std::ostream& operator<<(std::ostream& os, const Game& game) {
     os << "notVisiteds=" << game.notVisiteds << "\n";
     os << "\nTIMER\n" << game.timer << "\n";
     os << "\nBOARD\n" << game.board << "\n";
-    os << "\nUNDOHANDLER\n" << game.undo;
+    os << "\nUNDOHANDLER\n" << game.undo << "\n";
 
     return os;
+}
+
+std::istream& operator>>(std::istream& is, Game& game) {
+    // TODO
+    return is;
 }

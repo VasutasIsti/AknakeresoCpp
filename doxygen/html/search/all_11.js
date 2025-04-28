@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['setneighbourcount_0',['SetNeighbourCount',['../class_cell.html#ad262ea93d1d4439b5d1ec729b2e2503d',1,'Cell']]],
-  ['setundohandler_1',['SetUndoHandler',['../class_cell.html#a6b717c87d0a6f8c1c06d6f40e54135b6',1,'Cell']]],
+  ['savemidgame_0',['SaveMidGame',['../class_game.html#abd2148a09f874d11fa2290f609352c55',1,'Game']]],
+  ['setneighbourcount_1',['SetNeighbourCount',['../class_cell.html#ad262ea93d1d4439b5d1ec729b2e2503d',1,'Cell']]],
   ['size_2',['Size',['../class_board.html#a87c85e4cdcb1e62dc1afd471e0660ec5',1,'Board']]],
   ['status_3',['status',['../structgtest__lite_1_1_test.html#a59a9a7f0ef7867af604ce5678f7a2c13',1,'gtest_lite::Test']]],
   ['stringify_4',['STRINGIFY',['../_c_make_c_compiler_id_8c.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a43e1cad902b6477bec893cb6430bd6c8',1,'STRINGIFY:&#160;CMakeCXXCompilerId.cpp']]],

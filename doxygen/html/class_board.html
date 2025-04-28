@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Aknakereso<span id="projectnumber">&#160;0.1</span>
+   <div id="projectname">Aknakereso<span id="projectnumber">&#160;0.2</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -114,10 +114,13 @@ $(function(){initNavTree('class_board.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a680ebd80b716c197f9ca30deac9e84a1" id="r_a680ebd80b716c197f9ca30deac9e84a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a680ebd80b716c197f9ca30deac9e84a1">Board</a> (<a class="el" href="class_undo_handler.html">UndoHandler</a> &amp;undo)</td></tr>
-<tr class="separator:a680ebd80b716c197f9ca30deac9e84a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a09fe22dbc2f0195571f7108165d603" id="r_a1a09fe22dbc2f0195571f7108165d603"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a09fe22dbc2f0195571f7108165d603">Board</a> (int x, int y, double diff, <a class="el" href="class_undo_handler.html">UndoHandler</a> &amp;undo)</td></tr>
-<tr class="separator:a1a09fe22dbc2f0195571f7108165d603"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ee491d4fea680cf69b033374a9fdfcb" id="r_a9ee491d4fea680cf69b033374a9fdfcb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ee491d4fea680cf69b033374a9fdfcb">Board</a> ()</td></tr>
+<tr class="memdesc:a9ee491d4fea680cf69b033374a9fdfcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Konstruktor.  <br /></td></tr>
+<tr class="separator:a9ee491d4fea680cf69b033374a9fdfcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad006f17a9a40a68c6270f05651b072e1" id="r_ad006f17a9a40a68c6270f05651b072e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad006f17a9a40a68c6270f05651b072e1">Board</a> (int x, int y, double diff)</td></tr>
+<tr class="separator:ad006f17a9a40a68c6270f05651b072e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dc174c1dedf1672bd6f23b527c13d7b" id="r_a7dc174c1dedf1672bd6f23b527c13d7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cell.html">Cell</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7dc174c1dedf1672bd6f23b527c13d7b">getCell</a> (const int x, const int y) const</td></tr>
+<tr class="separator:a7dc174c1dedf1672bd6f23b527c13d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87c85e4cdcb1e62dc1afd471e0660ec5" id="r_a87c85e4cdcb1e62dc1afd471e0660ec5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87c85e4cdcb1e62dc1afd471e0660ec5">Size</a> () const</td></tr>
 <tr class="memdesc:a87c85e4cdcb1e62dc1afd471e0660ec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visszaadja a palya teljes meretet.  <br /></td></tr>
 <tr class="separator:a87c85e4cdcb1e62dc1afd471e0660ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,41 +151,29 @@ Friends</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="board_8hpp_source.html#l00013">13</a> of file <a class="el" href="board_8hpp_source.html">board.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a680ebd80b716c197f9ca30deac9e84a1" name="a680ebd80b716c197f9ca30deac9e84a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a680ebd80b716c197f9ca30deac9e84a1">&#9670;&#160;</a></span>Board() <span class="overload">[1/2]</span></h2>
+<a id="a9ee491d4fea680cf69b033374a9fdfcb" name="a9ee491d4fea680cf69b033374a9fdfcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ee491d4fea680cf69b033374a9fdfcb">&#9670;&#160;</a></span>Board() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Board::Board </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_undo_handler.html">UndoHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>undo</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<p>A legminimalisabb konstruktor </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">undo</td><td>A jatek visszavonas-kezelojenek referenciaja </td></tr>
-  </table>
-  </dd>
-</dl>
+
+<p>Default Konstruktor. </p>
 
 <p class="definition">Definition at line <a class="el" href="board_8cpp_source.html#l00028">28</a> of file <a class="el" href="board_8cpp_source.html">board.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a1a09fe22dbc2f0195571f7108165d603" name="a1a09fe22dbc2f0195571f7108165d603"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a09fe22dbc2f0195571f7108165d603">&#9670;&#160;</a></span>Board() <span class="overload">[2/2]</span></h2>
+<a id="ad006f17a9a40a68c6270f05651b072e1" name="ad006f17a9a40a68c6270f05651b072e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad006f17a9a40a68c6270f05651b072e1">&#9670;&#160;</a></span>Board() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,12 +191,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>diff</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_undo_handler.html">UndoHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>undo</em></span>&#160;)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>diff</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -214,12 +200,11 @@ Friends</h2></td></tr>
     <tr><td class="paramname">x</td><td>A palya szelessege </td></tr>
     <tr><td class="paramname">y</td><td>A palya magassaga </td></tr>
     <tr><td class="paramname">diff</td><td>A palyan talalhato akna mezok aranya (0.0 - 1.0) </td></tr>
-    <tr><td class="paramname">undo</td><td>A jatek visszavonas-kezelojenek referenciaja </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="board_8cpp_source.html#l00036">36</a> of file <a class="el" href="board_8cpp_source.html">board.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="board_8cpp_source.html#l00035">35</a> of file <a class="el" href="board_8cpp_source.html">board.cpp</a>.</p>
 
 </div>
 </div>
@@ -240,7 +225,7 @@ Friends</h2></td></tr>
 
 <p>Destruktor. </p>
 
-<p class="definition">Definition at line <a class="el" href="board_8cpp_source.html#l00083">83</a> of file <a class="el" href="board_8cpp_source.html">board.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="board_8cpp_source.html#l00081">81</a> of file <a class="el" href="board_8cpp_source.html">board.cpp</a>.</p>
 
 </div>
 </div>
@@ -277,7 +262,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="board_8cpp_source.html#l00052">52</a> of file <a class="el" href="board_8cpp_source.html">board.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="board_8cpp_source.html#l00050">50</a> of file <a class="el" href="board_8cpp_source.html">board.cpp</a>.</p>
 
 </div>
 </div>
@@ -310,6 +295,37 @@ Friends</h2></td></tr>
 
 </div>
 </div>
+<a id="a7dc174c1dedf1672bd6f23b527c13d7b" name="a7dc174c1dedf1672bd6f23b527c13d7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dc174c1dedf1672bd6f23b527c13d7b">&#9670;&#160;</a></span>getCell()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_cell.html">Cell</a> &amp; Board::getCell </td>
+          <td>(</td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="board_8hpp_source.html#l00062">62</a> of file <a class="el" href="board_8hpp_source.html">board.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a57a4317cebaae4f6879856262cf9caae" name="a57a4317cebaae4f6879856262cf9caae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a57a4317cebaae4f6879856262cf9caae">&#9670;&#160;</a></span>operator=()</h2>
 
@@ -331,7 +347,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="board_8cpp_source.html#l00152">152</a> of file <a class="el" href="board_8cpp_source.html">board.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="board_8cpp_source.html#l00150">150</a> of file <a class="el" href="board_8cpp_source.html">board.cpp</a>.</p>
 
 </div>
 </div>
@@ -386,7 +402,7 @@ Friends</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A cella, zaszlozottsagat a valtozas visszaallitasa utan. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="board_8cpp_source.html#l00147">147</a> of file <a class="el" href="board_8cpp_source.html">board.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="board_8cpp_source.html#l00145">145</a> of file <a class="el" href="board_8cpp_source.html">board.cpp</a>.</p>
 
 </div>
 </div>
@@ -420,7 +436,7 @@ Friends</h2></td></tr>
 
 <p>Kiiro fuggveny ostream-mekre. </p>
 
-<p class="definition">Definition at line <a class="el" href="board_8cpp_source.html#l00098">98</a> of file <a class="el" href="board_8cpp_source.html">board.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="board_8cpp_source.html#l00096">96</a> of file <a class="el" href="board_8cpp_source.html">board.cpp</a>.</p>
 
 </div>
 </div>
@@ -453,7 +469,7 @@ Friends</h2></td></tr>
 
 <p>Beolvaso fuggveny istrem-mekrol palyara. </p>
 
-<p class="definition">Definition at line <a class="el" href="board_8cpp_source.html#l00126">126</a> of file <a class="el" href="board_8cpp_source.html">board.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="board_8cpp_source.html#l00124">124</a> of file <a class="el" href="board_8cpp_source.html">board.cpp</a>.</p>
 
 </div>
 </div>

@@ -1,11 +1,12 @@
 #ifndef UNDO_HPP
 #define UNDO_HPP
 
-#include <ostream>
+#include <iostream>
 #include <vector>
 
 /// Egy cella valtozasat roggzito adatstruktura
 class CellChange {
+    /// CellChange-ek streamrol erkezo adatok ervenyesitese
     static void ValidateInputs(const char* format, const int* data);
 public:
     int x, y;   ///< A cella koordinatai
@@ -18,17 +19,19 @@ public:
     /// @param y A sor sorszama
     /// @param changedByPlayer A valtozast a jatekos kozvetlenul idezte elo
     /// @param flagedOrVisited Igaz, ha zaszlozas volt, hamis, ha felfedezes
-    CellChange(int x, int y, bool changedByPlayer, bool flagedOrVisited)
+    CellChange(const int x, const int y, const bool changedByPlayer, const bool flagedOrVisited)
         : x(x), y(y), changedByPlayer(changedByPlayer), flagedOrVisited(flagedOrVisited) {}
 
+    /// Egyenloseg operator, mert sirt erta az ide...
     bool operator==(const CellChange& rhs_c) const {
         return x==rhs_c.x &&
                y==rhs_c.y &&
                changedByPlayer==rhs_c.changedByPlayer &&
                flagedOrVisited==rhs_c.flagedOrVisited;
     }
-
+    /// Kiiro fuggveny ostream-mekre
     friend std::ostream& operator<<(std::ostream& os, const CellChange& c);
+    /// Beolvaso fuggveny istream-mekkel
     friend std::istream& operator>>(std::istream& is, CellChange& c);
 };
 

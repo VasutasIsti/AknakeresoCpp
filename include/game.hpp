@@ -34,7 +34,7 @@ public:
     Game(int x, int y, double diff, std::string username, bool undoEnabled = false);
 
 
-    // CSAK TESZTELESRE
+    // CSAK TESZTELESRE (egyenlore)
     UndoHandler& getUndoHandler() { return undo; }
     Board& getBoard() { return board; }
     Timer& getTimer() { return timer; }
@@ -42,8 +42,6 @@ public:
     GameState getState() const { return state; }
     int getFlagsRemaining() const { return flagsRemaining; }
     int getNotVisiteds() const { return notVisiteds; }
-
-
 
     // A fo, jatekmenetbeli funkciok
 
@@ -63,10 +61,14 @@ public:
     void VisitedSelected(int x, int y);
     /// Visszavonas eseten a Game szintjen elvegzendo feladatokat valositja meg.
     void Undo();
-    /// Nyeres eseten szukseges feladatok megvalositasa
+    /// Nyeres eseten szukseges feladatok megvalositasa (pl. fajlmuvelet, stb.)
     void Win();
     /// Vesztes eseten szukseges feladatok megvalositasa
     void Lose();
+    /// A befejezes elotti kilepeskori teendok megvalositasa
+    void SaveMidGame();
+
+
 
     /// Kiiro fuggveny ostream-mekre
     friend std::ostream& operator<<(std::ostream& os, const Game& game);

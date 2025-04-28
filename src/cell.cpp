@@ -1,10 +1,5 @@
 #include "cell.hpp"
-
-#include <iomanip>
-
-UndoHandler defUH;
-
-UndoHandler& Cell::undo = defUH;
+#include <iomanip>  // a streamre iras kicsit fancybb megoldasanal hasznalva
 
 Cell::Cell(int neighbourCount)
     : isBomb(false), isFlaged(false), isVisited(false) {

@@ -14,7 +14,6 @@ class Board {
     static int defaultx, defaulty;  ///< Alap palyameretek
     static double defaultdiff;      ///< Alap nehezseg
 
-    UndoHandler& undo;  ///< Visszavonas-kezelo referenciaja
     Cell** cells;   ///< Maga a palya, indexei sorrendben: oszlop, sor
     int sizeX, sizeY;   ///< A palya szelessege, magassaga
     double difficulty;  ///< Az Aknak aranya (0.0 - 1.0)
@@ -30,13 +29,13 @@ class Board {
     /// @param x Az oszlop sorszama
     /// @param y A sor sorszama
     /// @return A szomszedos akna mezok szamat
-    int NeighbourCount( int x, int y) const;
+    int NeighbourCount(int x, int y) const;
     /// Osszefuggo ures teruletek felfedezesenek seged fuggvenye, megadja, hogy az adott
     /// cella mar meg lett-e latogatva az ures teruleten.
     /// @param x Az oszlop sorszama
     /// @param y A sor sorszama
     /// @param empties Az ures cellakat gyujto lista
-    static bool IsEmptyListed(int x, int y, const std::vector<std::array<int, 2>>& empties) ;
+    static bool IsEmptyListed(int x, int y, const std::vector<std::array<int, 2>>& empties);
     /// Megszamolja a cella koruli aknak szamat (0-8)
     /// @param x Az oszlop sorszama
     /// @param y A sor sorszama
@@ -51,17 +50,15 @@ class Board {
     /// @param diff A beolvasas egyik cel adat mezoje
     static void ValidateInput(std::istream& input, int& x, int& y, double& diff);
 public:
-    /// A legminimalisabb konstruktor
-    /// @param undo A jatek visszavonas-kezelojenek referenciaja
-    explicit Board(UndoHandler& undo);
+    /// Default Konstruktor
+    Board();
 
     /// @param x A palya szelessege
     /// @param y A palya magassaga
     /// @param diff A palyan talalhato akna mezok aranya (0.0 - 1.0)
-    /// @param undo A jatek visszavonas-kezelojenek referenciaja
-    Board(int x, int y, double diff, UndoHandler& undo);
+    Board(int x, int y, double diff);
 
-    // CSAK TESZTELESRE
+    // Egy tarolt cella elerese
     Cell& getCell(const int x, const int y) const {return cells[x][y];}
 
     /// Visszaadja a palya teljes meretet

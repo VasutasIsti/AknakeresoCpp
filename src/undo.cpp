@@ -55,11 +55,23 @@ void UndoHandler::LogVisiting(const int x, const int y, const bool changedByPlay
 }
 
 std::ostream& operator<<(std::ostream& os, const UndoHandler& undoHandler) {
-	// TODO
+	os << "CellChanges=" << undoHandler.cellChanges.size() << std::endl;
+	for (CellChange c : undoHandler.cellChanges)
+		os << c << " ";
+	os << "\n";
 	return os;
 }
 
 std::istream& operator>>(std::istream& is, UndoHandler& undoHandler) {
-	// TODO
+	std::string line;
+	std::getline(is, line);
+	int count = std::stoi(line.substr(12));
+	if (count < 0)
+		throw std::invalid_argument("Undo: Invalid data!");
+	for (int i = 0; i < count; i++) {
+		CellChange current;
+		is >> current;
+		undoHandler.cellChanges.push_back(current);
+	}
 	return is;
 }

@@ -59,7 +59,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_c_make_c_compiler_id_8c.html",
-"timer_8cpp.html"
+"structgtest__lite_1_1_test.html#a8d495a42580e3ae337f9c4982136b700"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

@@ -4,7 +4,6 @@
 
 int main() {
 	UndoHandler undo;
-	Cell::SetUndoHandler(undo);
 
 	TEST(Cell, ctor) {
 		Cell c;
@@ -69,14 +68,14 @@ int main() {
 	// TODO Egy nem a veletlenre bizott aknalerako fuggveny megalkotasa tesztelesi cellal
 
 	TEST(Board, ctor) {
-		Board b(undo);
+		Board b;
 		// Amig nem valtozik meg a default meret es
 		EXPECT_EQ(25,b.Size());
 		EXPECT_EQ(floor(25*0.2), b.DiffToBombCount());
 	} END
 
 	TEST(Board, ctorCustom) {
-		Board b(10, 10, 0.3, undo);
+		Board b(10, 10, 0.3);
 		EXPECT_EQ(100,b.Size());
 		EXPECT_EQ(floor(100*0.3), b.DiffToBombCount());
 	} END
@@ -123,11 +122,11 @@ int main() {
 
 	TEST(Undo, inside) {
 		UndoHandler local;
+		local.EnableUndo();
 		CellChange c1(0, 0, true, true);
 		local.LogFlaging(0, 0);
 		CellChange c2 = local.Undo();
 		EXPECT_EQ(c1, c2);
-
 	} END
 
 

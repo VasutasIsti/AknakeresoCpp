@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Aknakereso<span id="projectnumber">&#160;0.1</span>
+   <div id="projectname">Aknakereso<span id="projectnumber">&#160;0.2</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -111,9 +111,17 @@ $(function(){initNavTree('class_game.html',''); initResizable(true); });
   <tr class="even"><td class="entry"><a class="el" href="class_game.html#a0fe26e2b608b3f09cc2a5377fc9c1e87">Flaging</a>(int x, int y)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_game.html#ad59df6562a58a614fda24622d3715b65">Game</a>()</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_game.html#a30eb792e0a32ba2b1f18aeb5ecddd2d3">Game</a>(int x, int y, double diff, std::string username, bool undoEnabled=false)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_game.html#a05af06bf0971e351184b90898387e131">Lose</a>()</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_game.html#aabae0ecb266ff0bd9f48a1f5f9e316e9">operator&lt;&lt;</a>(std::ostream &amp;os, const Game &amp;game)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_game.html#a1a969ba7738add74cbd75e85e76bca2f">operator&gt;&gt;</a>(std::istream &amp;is, Game &amp;game)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_game.html#abb01bda7e2fecca8571706abec4bc3dd">getBoard</a>()</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game.html#a58135eb267beae04f8fd78d11bc221f8">getFlagsRemaining</a>() const</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_game.html#a960a99efdf001649c38858c5b9efda81">getNotVisiteds</a>() const</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game.html#a0f4b064e671b82942fdd2342de456395">getState</a>() const</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_game.html#a327203849bec9d583027573720b9f60c">getTimer</a>()</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game.html#a0c066129e7e755ed9e47960552901196">getUndoHandler</a>()</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_game.html#a5eabdf71b634b956352cc5e1a61d9067">getUsername</a>() const</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game.html#a05af06bf0971e351184b90898387e131">Lose</a>()</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_game.html#aabae0ecb266ff0bd9f48a1f5f9e316e9">operator&lt;&lt;</a>(std::ostream &amp;os, const Game &amp;game)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_game.html#a1a969ba7738add74cbd75e85e76bca2f">operator&gt;&gt;</a>(std::istream &amp;is, Game &amp;game)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_game.html#abd2148a09f874d11fa2290f609352c55">SaveMidGame</a>()</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_game.html#a9acf908745745a6576c729e620136367">Undo</a>()</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_game.html#a8c3f69d8405eaf234152754141b01550">VisitCell</a>(int x, int y)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_game.html#aa14c099aafe9c03368325aff4fba08a5">VisitedSelected</a>(int x, int y)</td><td class="entry"><a class="el" href="class_game.html">Game</a></td><td class="entry"></td></tr>

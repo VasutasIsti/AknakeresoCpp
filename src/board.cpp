@@ -25,17 +25,15 @@ int Board::NeighbourCount(const int x, const int y) const {
     return neighbours;
 }
 
-Board::Board(UndoHandler& undo) : undo(undo), sizeX(defaultx), sizeY(defaulty), difficulty(defaultdiff) {
-    Cell::SetUndoHandler(undo);
+Board::Board() : sizeX(defaultx), sizeY(defaulty), difficulty(defaultdiff) {
     cells = new Cell*[sizeX];
     for (int i = 0; i < sizeX; i++)
         cells[i] = new Cell[sizeY];
     PlaceBombs();
 }
 
-Board::Board(int x, int y, double diff, UndoHandler& undo)
-    : sizeX(x), sizeY(y), difficulty(diff), undo(undo) {
-    Cell::SetUndoHandler(undo);
+Board::Board(int x, int y, double diff)
+    : sizeX(x), sizeY(y), difficulty(diff) {
     cells = new Cell*[sizeX];
     for (int i = 0; i < sizeX; i++)
         cells[i] = new Cell[sizeY];
@@ -157,7 +155,6 @@ Board& Board::operator=(const Board& rhs) {
         delete[] cells[i];
     delete[] cells;
 
-    undo = rhs.undo;
     sizeX = rhs.sizeX;
     sizeY = rhs.sizeY;
     difficulty = rhs.difficulty;

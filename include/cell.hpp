@@ -10,7 +10,6 @@ class Cell {
     bool isFlaged;  ///< Az adott cella meg van-e jelolve
     bool isVisited; ///< Az adott cella fel van-e mar fedve
     int neighbourCount; ///< Hany szomszedos Akna cella van
-    static UndoHandler& undo;   ///< Visszavonas-kezelo referenciaja
 
     /// Ha az adatfolyamon erkezo adat rossz formatumu, akkor hibat
     /// dob, hiba eseten a program nem folytathato (mashol van lekezelve)
@@ -25,7 +24,7 @@ public:
     /// Akna konstruktor\n
     /// Akna cellak neighbourCount-ja alapertelmezetten -1
     /// @param isBomb Az adott cella Akna legyen-e
-    explicit Cell(bool isBomb)
+    explicit Cell(const bool isBomb)
         : isBomb(isBomb), isFlaged(false), isVisited(false), neighbourCount(isBomb?-1:0) {};
     /// Egyszeru konstruktor\n
     /// Ha esetleg mar tudhato a cella osszes szomszedjanak Akna volta
@@ -57,9 +56,6 @@ public:
     /// Lekeri a neigbourCount erteket
     /// @return A szomszedos Aknak darabszamat
     int GetNeighbourCount() const {return neighbourCount;}
-
-    /// A statikus Visszavonas-kezelo beallitasa
-    static void SetUndoHandler(const UndoHandler& uh) {undo = uh;}
 
     /// A visszavonas muveletet megvalosito fuggveny, egy cella
     /// @param flagedOrVisited Igaz, ha zaszlozas volt, hamis, ha felfedes

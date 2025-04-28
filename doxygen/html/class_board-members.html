@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Aknakereso<span id="projectnumber">&#160;0.1</span>
+   <div id="projectname">Aknakereso<span id="projectnumber">&#160;0.2</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -108,16 +108,17 @@ $(function(){initNavTree('class_board.html',''); initResizable(true); });
 
 <p>This is the complete list of members for <a class="el" href="class_board.html">Board</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_board.html#a680ebd80b716c197f9ca30deac9e84a1">Board</a>(UndoHandler &amp;undo)</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_board.html#a1a09fe22dbc2f0195571f7108165d603">Board</a>(int x, int y, double diff, UndoHandler &amp;undo)</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_board.html#a9ee491d4fea680cf69b033374a9fdfcb">Board</a>()</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_board.html#ad006f17a9a40a68c6270f05651b072e1">Board</a>(int x, int y, double diff)</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_board.html#a74ce6629db8dac80db2457083e8eb487">CheckAdjacents</a>(int x, int y, std::vector&lt; std::array&lt; int, 2 &gt; &gt; &amp;empties) const</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="class_board.html#a5758446cd5abf1b703c0fb212c0e4bf4">DiffToBombCount</a>() const</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_board.html#ab371c3ae6aa377e0cbd3da03862935a3">operator&lt;&lt;</a>(std::ostream &amp;os, const Board &amp;board)</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_board.html#a57a4317cebaae4f6879856262cf9caae">operator=</a>(const Board &amp;rhs)</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_board.html#a96b4697d7cd95eb4eb2ef74add316e50">operator&gt;&gt;</a>(std::istream &amp;is, Board &amp;board)</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_board.html#a87c85e4cdcb1e62dc1afd471e0660ec5">Size</a>() const</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_board.html#ad11f39c74ed396f6c388851b808f0e47">Undo</a>(const CellChange &amp;cc) const</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_board.html#af73f45730119a1fd8f6670f53f959e68">~Board</a>()</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_board.html#a7dc174c1dedf1672bd6f23b527c13d7b">getCell</a>(const int x, const int y) const</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_board.html#ab371c3ae6aa377e0cbd3da03862935a3">operator&lt;&lt;</a>(std::ostream &amp;os, const Board &amp;board)</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_board.html#a57a4317cebaae4f6879856262cf9caae">operator=</a>(const Board &amp;rhs)</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_board.html#a96b4697d7cd95eb4eb2ef74add316e50">operator&gt;&gt;</a>(std::istream &amp;is, Board &amp;board)</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_board.html#a87c85e4cdcb1e62dc1afd471e0660ec5">Size</a>() const</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_board.html#ad11f39c74ed396f6c388851b808f0e47">Undo</a>(const CellChange &amp;cc) const</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_board.html#af73f45730119a1fd8f6670f53f959e68">~Board</a>()</td><td class="entry"><a class="el" href="class_board.html">Board</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

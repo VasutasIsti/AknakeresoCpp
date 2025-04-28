@@ -13,6 +13,7 @@ time_t Timer::GetDeltaTime() {
 
 std::ostream& operator<<(std::ostream& os, const Timer& timer) {
 	// TODO
+	// majd \n a vegere
 	return os;
 }
 

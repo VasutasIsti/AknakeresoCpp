@@ -1,7 +1,7 @@
 var class_cell =
 [
     [ "Cell", "class_cell.html#a394510643e8664cf12b5efaf5cb99f71", null ],
-    [ "Cell", "class_cell.html#aaa7dadbdcf3133e2c0ed1a8bf9a1195d", null ],
+    [ "Cell", "class_cell.html#ad641c60edea349c9260d5f849b16be8d", null ],
     [ "Cell", "class_cell.html#a9fa1a6ee0d1d96edee42246311095127", null ],
     [ "Flag", "class_cell.html#a59a9f38fb175e7107d088eaa7550c2e2", null ],
     [ "GetIsBomb", "class_cell.html#a42a3b054b603320a54ed45c3cc59a86f", null ],
