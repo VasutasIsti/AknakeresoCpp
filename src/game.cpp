@@ -50,7 +50,7 @@ void Game::Undo() {
             else           flagsRemaining--;
         }
         else notVisiteds++;
-    } while (current.changedByPlayer);
+    } while (!current.changedByPlayer);
 }
 
 void Game::Win() {

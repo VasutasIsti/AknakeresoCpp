@@ -86,6 +86,7 @@ public:
     friend std::istream& operator>>(std::istream& is, Board& board);
 };
 
-
+std::ostream& operator<<(std::ostream& os, const Board& board);
+std::istream& operator>>(std::istream& is, Board& board);
 
 #endif //BOARD_HPP

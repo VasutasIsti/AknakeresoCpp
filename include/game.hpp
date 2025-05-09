@@ -77,4 +77,7 @@ public:
 
 };
 
+std::ostream& operator<<(std::ostream& os, const Game& game);
+std::istream& operator>>(std::istream& is, Game& game);
+
 #endif //GAME_H

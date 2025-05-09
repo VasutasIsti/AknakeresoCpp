@@ -2,14 +2,12 @@
 #define CELL_HPP
 
 #include <iostream>
-#include "undo.hpp"
 
 /// A palyat alkoto cellak
 class Cell {
-    bool isBomb;    ///< Az adott cella Akna-e
     bool isFlaged;  ///< Az adott cella meg van-e jelolve
     bool isVisited; ///< Az adott cella fel van-e mar fedve
-    int neighbourCount; ///< Hany szomszedos Akna cella van
+    int neighbourCount; ///< Hany szomszedos Akna cella van, -1 ha sajat maga akna
 
     /// Ha az adatfolyamon erkezo adat rossz formatumu, akkor hibat
     /// dob, hiba eseten a program nem folytathato (mashol van lekezelve)
@@ -20,12 +18,12 @@ public:
 
     /// Default konstruktor\n
     /// Alapvetoen egy "nemAkna", "nullaAknaSzomszed"-dal rendelkezo cellat hoz letre
-    Cell() : isBomb(false), isFlaged(false), isVisited(false), neighbourCount(0) {};
+    Cell() : isFlaged(false), isVisited(false), neighbourCount(0) {};
     /// Akna konstruktor\n
     /// Akna cellak neighbourCount-ja alapertelmezetten -1
     /// @param isBomb Az adott cella Akna legyen-e
     explicit Cell(const bool isBomb)
-        : isBomb(isBomb), isFlaged(false), isVisited(false), neighbourCount(isBomb?-1:0) {};
+        : isFlaged(false), isVisited(false), neighbourCount(isBomb ? -1 : 0) {};
     /// Egyszeru konstruktor\n
     /// Ha esetleg mar tudhato a cella osszes szomszedjanak Akna volta
     /// @param neighbourCount Az adott cellanak hany Akna szomszedja van
@@ -43,7 +41,7 @@ public:
 
     /// Visszaadja, hogy az adott cella Akna-e
     /// @return isBomb erteke
-    bool GetIsBomb() const {return isBomb;}
+    bool GetIsBomb() const {return (neighbourCount == -1);}
     /// Visszaadja, hogy a cella zaszlozott-e
     /// @return isFlaged erteke
     bool GetIsFlaged() const {return isFlaged;}
@@ -70,5 +68,8 @@ public:
     /// @param cell A cella, aminek erteket akarunk igy adni
     friend std::istream& operator>>(std::istream& is, Cell& cell);
 };
+
+std::ostream& operator<<(std::ostream& os, const Cell& cell);
+std::istream& operator>>(std::istream& is, Cell& cell);
 
 #endif //CELL_HPP

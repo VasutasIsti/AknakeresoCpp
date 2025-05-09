@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['módosítani_0',['Nem célszerű közvetlenül használni, vagy módosítani',['../gtest__lite_8h.html#autotoc_md0',1,'']]],
-  ['main_1',['main',['../_c_make_c_compiler_id_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCXXCompilerId.cpp'],['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.cpp'],['../test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;test.cpp']]],
-  ['main_2ecpp_2',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['memtrace_3',['MEMTRACE',['../main_8cpp.html#aa90f3e89fc3fe477370afb9f81975081',1,'main.cpp']]],
-  ['memtrace_2ecpp_4',['memtrace.cpp',['../memtrace_8cpp.html',1,'']]],
-  ['memtrace_2eh_5',['memtrace.h',['../memtrace_8h.html',1,'']]]
+  ['savemidgame_0',['SaveMidGame',['../classGame.html#abd2148a09f874d11fa2290f609352c55',1,'Game']]],
+  ['setneighbourcount_1',['SetNeighbourCount',['../classCell.html#ad262ea93d1d4439b5d1ec729b2e2503d',1,'Cell']]],
+  ['size_2',['Size',['../classBoard.html#a87c85e4cdcb1e62dc1afd471e0660ec5',1,'Board']]],
+  ['status_3',['status',['../structgtest__lite_1_1Test.html#a59a9a7f0ef7867af604ce5678f7a2c13',1,'gtest_lite::Test']]],
+  ['succeed_4',['SUCCEED',['../gtest__lite_8h.html#a75adcdf89f69b0b615e395daafc315af',1,'gtest_lite.h']]],
+  ['sum_5',['sum',['../structgtest__lite_1_1Test.html#a6da678d43b72b9e2bff1c99e1d3c48f5',1,'gtest_lite::Test']]]
 ];

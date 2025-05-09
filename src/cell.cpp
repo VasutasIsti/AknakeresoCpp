@@ -2,7 +2,7 @@
 #include <iomanip>  // a streamre iras kicsit fancybb megoldasanal hasznalva
 
 Cell::Cell(int neighbourCount)
-    : isBomb(false), isFlaged(false), isVisited(false) {
+    : isFlaged(false), isVisited(false) {
     if (neighbourCount < 0 || neighbourCount > 8)
         throw std::invalid_argument("Cell: NeighbourCount out of range!");
 
@@ -10,7 +10,6 @@ Cell::Cell(int neighbourCount)
 }
 
 Cell& Cell::operator=(const Cell& cell) {
-    isBomb = cell.GetIsBomb();
     isFlaged = cell.GetIsFlaged();
     isVisited = cell.GetIsVisited();
     neighbourCount = cell.GetNeighbourCount();
@@ -24,7 +23,7 @@ bool Cell::Flag() {
 
 bool Cell::Visit() {
     isVisited = true;
-    return isBomb;
+    return GetIsBomb();
 }
 
 void Cell::Undo(bool flagedOrVisited) {
@@ -36,40 +35,35 @@ void Cell::Undo(bool flagedOrVisited) {
 
 
 std::ostream & operator<<(std::ostream &os, const Cell &cell) {
-    os << '{' << cell.isBomb << ',' <<
-                 cell.isFlaged << ',' <<
+    os << '{' << cell.isFlaged << ',' <<
                  cell.isVisited << ',' << std::setw(2) <<
                  cell.neighbourCount << '}';
     return os;
 }
 
 void Cell::ValidateInputs(const char* format, const int* data) {
-    if (format[0] != '{' || format[4] != '}')
+    if (format[0] != '{' || format[3] != '}')
         throw std::invalid_argument("Cell: Invalid format!");
-    if (format[1] != ',' || format[2] != ',' || format[3] != ',')
+    if (format[1] != ',' || format[2] != ',')
         throw std::invalid_argument("Cell: Invalid format!");
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 2; i++)
         if (data[i] != 0 && data[i] != 1)
             throw std::invalid_argument("Cell: Invalid data!");
-    if (data[3] < -1 || data[3] > 8)
+    if (data[2] < -1 || data[2] > 8)
         throw std::invalid_argument("Cell: Invalid data!");
-    if (data[3] < 0 && !data[0])
-        throw std::invalid_argument("Cell: Contradiction in data!");
 }
 
 // Itt megszivattam magam a fancy kiirassal...
 std::istream& operator>>(std::istream& is, Cell& cell) {
-    char format[5];
-    int data[4];
+    char format[4];
+    int data[3];
     is >> format[0] >> data[0] >>
           format[1] >> data[1] >>
           format[2] >> data[2] >>
-          format[3] >> data[3] >>
-          format[4];
+          format[3];
     Cell::ValidateInputs(format, data);
-    cell.isBomb = data[0];
-    cell.isFlaged = data[1];
-    cell.isVisited = data[2];
-    cell.neighbourCount = data[3];
+    cell.isFlaged =       data[0];
+    cell.isVisited =      data[1];
+    cell.neighbourCount = data[2];
     return is;
 }

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['main_0',['main',['../_c_make_c_compiler_id_8c.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;CMakeCXXCompilerId.cpp'],['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main.cpp'],['../test_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;test.cpp']]]
+  ['operator_3d_0',['operator=',['../classBoard.html#a57a4317cebaae4f6879856262cf9caae',1,'Board::operator=()'],['../classCell.html#a38f8f6155e7e3f2d0d1c3f521d27f855',1,'Cell::operator=()']]],
+  ['operator_3d_3d_1',['operator==',['../classCellChange.html#ac2b443c75c9bbda315f2714bb02d6683',1,'CellChange']]]
 ];

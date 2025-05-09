@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['közvetlenül_20használni_20vagy_20módosítani_0',['Nem célszerű közvetlenül használni, vagy módosítani',['../gtest__lite_8h.html#autotoc_md0',1,'']]]
+  ['name_0',['name',['../structgtest__lite_1_1Test.html#a8d495a42580e3ae337f9c4982136b700',1,'gtest_lite::Test']]],
+  ['null_1',['null',['../structgtest__lite_1_1Test.html#af4784302d78bb004bcb20b7f75ec06c3',1,'gtest_lite::Test']]]
 ];

@@ -63,4 +63,10 @@ public:
     friend std::istream& operator>>(std::istream& is, UndoHandler& undoHandler);
 
 };
+
+std::ostream& operator<<(std::ostream& os, const CellChange& c);
+std::istream& operator>>(std::istream& is,       CellChange& c);
+std::ostream& operator<<(std::ostream& os, const UndoHandler& undoHandler);
+std::istream& operator>>(std::istream& is,       UndoHandler& undoHandler);
+
 #endif //UNDO_HPP
