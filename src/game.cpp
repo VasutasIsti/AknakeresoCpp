@@ -33,6 +33,7 @@ void Game::VisitCell(const int x, const int y) {
     undo.LogVisiting(x, y, true);
 
     //TODO
+
 }
 
 void Game::VisitedSelected(const int x, const int y) {

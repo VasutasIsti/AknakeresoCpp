@@ -2,7 +2,7 @@
 #define CLI_HPP
 
 #include "game.hpp"
-#include <ncurses/ncurses.h>
+#include <ncurses.h>
 
 struct Cursor {
 	int x, y;	///< A kurzor poziciojat leiro parameterek
@@ -13,8 +13,11 @@ struct Cursor {
 class CLIRenderer {
 	Game& game;
 	Cursor cursor;
+	WINDOW* window;
+
 public:
-	CLIRenderer(Game& game);
+
+	explicit CLIRenderer(Game& game);
 
 	~CLIRenderer();
 };
