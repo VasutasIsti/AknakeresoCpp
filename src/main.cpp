@@ -48,6 +48,7 @@ int main() {
     std::cout << "height: ";                 std::cin >> y;
     std::cout << "difficulty (0.0 - 0.9): "; std::cin >> diff;
 
+    // Hogy ne vegye be az elozo kerdes enteret mint ervenyes igen valasz
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     undo = askBoolean("enable undo [y/n]: ");
 
@@ -56,11 +57,11 @@ int main() {
     else
         game = new Game(x, y, diff, user, undo);
 
-    std::cout << std::endl;
+    // Innentol ncurses kiirasokat lehet csak hasznalni
+    CLIRenderer renderer(game);
 
-    CLIRenderer renderer(*game);
-
-    std::cin;
+    printw("maybe it's workin'");
+    wrefresh(renderer.window);
 
 #endif
 

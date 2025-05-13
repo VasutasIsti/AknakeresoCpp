@@ -2,6 +2,8 @@
 #define CLI_HPP
 
 #include "game.hpp"
+
+// Megkattant az msys es a clion, nem tudom hogy normalisan belinkelni, hogy egy szinten legyenek
 #include <ncurses.h>
 
 struct Cursor {
@@ -11,13 +13,14 @@ struct Cursor {
 //ncurses
 
 class CLIRenderer {
-	Game& game;
-	Cursor cursor;
-	WINDOW* window;
+	Game* game;
 
 public:
+	Cursor cursor;
 
-	explicit CLIRenderer(Game& game);
+	WINDOW* window;
+
+	explicit CLIRenderer(Game* game);
 
 	~CLIRenderer();
 };
