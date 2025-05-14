@@ -8,7 +8,7 @@
 // ezek elvileg 2022-es modositasuk, remelem ez az a verzio ami kell
 //#define MEMTRACE
 
-#define READY
+//#define READY
 
 bool askBoolean(const char* question) {
     std::string answer;
@@ -60,7 +60,7 @@ int main() {
     // Innentol ncurses kiirasokat lehet csak hasznalni
     CLIRenderer renderer(game);
 
-    printw("maybe it's workin'");
+    wprintw(renderer.window, "maybe it's workin'");
     wrefresh(renderer.window);
 
 #endif

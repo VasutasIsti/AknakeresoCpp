@@ -73,14 +73,30 @@ std::ostream& operator<<(std::ostream& os, const Game& game) {
     os << "state=" << game.state << "\n";
     os << "flagsRemaining=" << game.flagsRemaining << "\n";
     os << "notVisiteds=" << game.notVisiteds << "\n";
-    os << "\nTIMER\n" << game.timer << "\n";
-    os << "\nBOARD\n" << game.board << "\n";
-    os << "\nUNDOHANDLER\n" << game.undo << "\n";
+    os << "TIMER\n" << game.timer << "\n";
+    os << "BOARD\n" << game.board << "\n";
+    os << "UNDOHANDLER\n" << game.undo << "\n";
 
     return os;
 }
 
 std::istream& operator>>(std::istream& is, Game& game) {
     // TODO
+    std::string line;
+    std::getline(is, line);
+    if (line.find("username") != std::string::npos)
+        game.username = line.substr(line.find('=') + 1);
+    std::getline(is, line);
+    if (line.find("state") != std::string::npos)
+        game.state = static_cast<GameState>(std::stoi(line.substr(line.find('=') + 1)));
+    std::getline(is, line);
+    if (line.find("flagsRemaining") != std::string::npos)
+        game.flagsRemaining = std::stoi(line.substr(line.find('=') + 1));
+    std::getline(is, line);
+        if (line.find("notVisiteds") != std::string::npos)
+        game.notVisiteds = std::stoi(line.substr(line.find('=') + 1));
+    
+    std::getline(is, line);
+    
     return is;
 }
