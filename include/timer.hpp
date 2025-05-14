@@ -21,10 +21,16 @@ public:
     /// frissiti a t-ben tarolt "aktualis", valamint visszaadja az eltelt idot
     /// @return A timer inicializalasa ota eltelt ido (time_t)
     time_t GetDeltaTime();
+
+    time_t GetT0() const {return t0;}
+    time_t GetT() const {return t;}
     /// Kiiros fuggveny ostream-mekre
-    friend std::ostream& operator<<(std::ostream& os, const Timer& t);
+    friend std::ostream& operator<<(std::ostream& os, const Timer& timer);
     /// Beolvaso fuggveny istream-mekrol
-    friend std::istream& operator>>(std::istream& is, Timer& t);
+    friend std::istream& operator>>(std::istream& is, Timer& timer);
 };
+
+std::ostream& operator<<(std::ostream& os, const Timer& timer);
+std::istream& operator>>(std::istream& is, Timer& timer);
 
 #endif //TIMER_H

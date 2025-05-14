@@ -1,6 +1,6 @@
 #include <iostream>
-#include <limits>
 
+#include "templates.hpp"
 #include "game.hpp"
 #include "cli.hpp"
 
@@ -8,23 +8,7 @@
 // ezek elvileg 2022-es modositasuk, remelem ez az a verzio ami kell
 //#define MEMTRACE
 
-//#define READY
-
-bool askBoolean(const char* question) {
-    std::string answer;
-    while (true) {
-        std::cout << question;
-        std::getline(std::cin, answer);
-        if (answer.empty()) return true;
-        if (answer.length() == 1) {
-            if (answer[0] == 'Y' || answer[0] == 'y')
-                return true;
-            if (answer[0] == 'N' || answer[0] == 'n')
-                return false;
-        }
-        std::cout << "Invalid input. Please try again." << std::endl;
-    }
-}
+#define READY
 
 int main() {
 #ifndef READY
@@ -37,30 +21,31 @@ int main() {
 #endif
 
 #ifdef READY
-    std::string user;
+    std::string user = "Player";
     int x = 0, y = 0;
-    double diff = 0;
+    double diff = 0.0;
     bool undo;
     Game* game;
 
-    std::cout << "Username: ";               std::cin >> user;
-    std::cout << "width: ";                  std::cin >> x;
-    std::cout << "height: ";                 std::cin >> y;
-    std::cout << "difficulty (0.0 - 0.9): "; std::cin >> diff;
-
-    // Hogy ne vegye be az elozo kerdes enteret mint ervenyes igen valasz
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    askQuestion<std::string>(user, "Username", Game::getDefUser());
+    askQuestion<int>(x, "Width", Board::GetDefaultX());
+    askQuestion<int>(y, "Height", Board::GetDefaultY());
+    askQuestion<double>(diff, "Difficulty (0.0 - 0.9)", Board::GetDefaultDiff());
+    // stilus valtas, ez hamarabb volt, mint a tobbi... a tobbi meg egy kudarc lett xd
     undo = askBoolean("enable undo [y/n]: ");
 
+    // Nem lehet nullas ertek egyik sem. Ha megis az, akkor default ertekekkel indul el a program.
     if (x == 0 || y == 0 || diff == 0.0)
         game = new Game();
+        if (undo)
+            game->getUndoHandler().EnableUndo();
     else
         game = new Game(x, y, diff, user, undo);
 
     // Innentol ncurses kiirasokat lehet csak hasznalni
     CLIRenderer renderer(game);
 
-    wprintw(renderer.window, "maybe it's workin'");
+    //wprintw(renderer.window, "maybe it's workin'");
     wrefresh(renderer.window);
 
 #endif

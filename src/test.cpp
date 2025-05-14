@@ -1,6 +1,7 @@
 #include "gtest_lite.h"
 #include "game.hpp"
 #include "cell.hpp"
+#include "unistd.h"
 
 int main() {
 	UndoHandler undo;
@@ -38,17 +39,17 @@ int main() {
 		Cell c(true);
 		std::ostringstream oss;
 		oss << c;
-		EXPECT_STREQ("{1,0,0,-1}", oss.str().c_str());
+		EXPECT_STREQ("{0,0,-1}", oss.str().c_str());
 		std::ostringstream oss2;
 		Cell c2(2);
 		oss2 << c2;
-		EXPECT_STREQ("{0,0,0, 2}", oss2.str().c_str());
+		EXPECT_STREQ("{0,0, 2}", oss2.str().c_str());
 	} END
 
 	TEST(Cell, read) {
 		Cell c;
 		std::istringstream iss;
-		iss.str("{1,0,0,-1}");
+		iss.str("{0,0,-1}");
 		iss >> c;
 		EXPECT_TRUE(c.GetIsBomb());
 		EXPECT_FALSE(c.GetIsFlaged());
@@ -56,7 +57,7 @@ int main() {
 		EXPECT_EQ(-1, c.GetNeighbourCount());
 		Cell c2;
 		std::istringstream iss2;
-		iss2.str("{0,0,0, 2}");
+		iss2.str("{0,0, 2}");
 		iss2 >> c2;
 		EXPECT_FALSE(c2.GetIsBomb());
 		EXPECT_FALSE(c2.GetIsFlaged());
@@ -129,8 +130,31 @@ int main() {
 		EXPECT_EQ(c1, c2);
 	} END
 
+	// VAN SLEEP
+	TEST(Timer, ReadWrite) {
+		Timer t1;
+		std::stringstream ss;
+		ss << t1;
+		time_t t1delta = t1.GetDeltaTime();
+		sleep(2);
+		Timer t2;
+		ss >> t2;
+		EXPECT_LT(t1.GetT0(), t2.GetT0());
+		EXPECT_EQ(t1delta, t2.GetDeltaTime());
+	} END
 
-
+	TEST(Game, ReadWrite) {
+		Game game1(10, 12, 0.2345, "Jatekos", true);
+		std::stringstream ss;
+		ss << game1;
+		Game game2;
+		ss >> game2;
+		// Legalabb az elso sor stimmel-e
+		for (size_t i = 0; i < 10; i++)
+			EXPECT_EQ(game1.getBoard().getCell(i, 0).GetNeighbourCount(), game2.getBoard().getCell(i, 0).GetNeighbourCount());
+		
+		EXPECT_STREQ(game1.getUsername().c_str(), game2.getUsername().c_str());
+	} END
 
 	return 0;
 }

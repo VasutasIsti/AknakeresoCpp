@@ -9,7 +9,7 @@
 #include "undo.hpp"
 
 /// A palyat alkoto cellakat osszefogo osztaly, nagyobb, a jatek belso mukodesehez
-/// szukseges fuggvenyek lakohelye.
+/// szukseges fuggvenyek lakohelye. Memoria lokalitast tekintve oszlop osszefuggo.
 class Board {
     static int defaultx, defaulty;  ///< Alap palyameretek
     static double defaultdiff;      ///< Alap nehezseg
@@ -63,6 +63,14 @@ public:
 
     /// Visszaadja a palya teljes meretet
     int Size() const {return sizeX * sizeY;}
+
+    int GetWidth() const {return sizeX;}
+
+    int GetHeight() const {return sizeY;}
+
+    static int GetDefaultX() {return defaultx;}
+    static int GetDefaultY() {return defaulty;}
+    static double GetDefaultDiff() {return defaultdiff;}
     /// A palya nehezsegebol szamolja ki az aknak szamat
     int DiffToBombCount() const {return floor(sizeX*sizeY*difficulty);}
 

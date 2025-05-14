@@ -21,7 +21,9 @@ class Game {
     std::string username;   ///< A felhasznalo neve, def. "Player"
     GameState state;    ///< Milyen allapotban van a jatek
     int flagsRemaining; ///< Hany zaszlot lehet meg elhelyezni a palyan
-    int notVisiteds;    ///< Meg hany cellat kell felfedezni/lezaszlozni
+    int notVisiteds;    ///< Meg hany cellat kell 
+    
+    static std::string defUser;
 public:
     /// Default Konstruktor
     Game();
@@ -39,6 +41,7 @@ public:
     Board& getBoard() { return board; }
     Timer& getTimer() { return timer; }
     std::string getUsername() const { return username; }
+    static std::string getDefUser() {return defUser;} 
     GameState getState() const { return state; }
     int getFlagsRemaining() const { return flagsRemaining; }
     int getNotVisiteds() const { return notVisiteds; }

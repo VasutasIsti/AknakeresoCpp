@@ -14,10 +14,20 @@ time_t Timer::GetDeltaTime() {
 std::ostream& operator<<(std::ostream& os, const Timer& timer) {
 	// TODO
 	// majd \n a vegere
+	os << "t0=" << timer.t0 << "\n";
+	os << "t =" << timer.t  << "\n";
 	return os;
 }
 
 std::istream& operator>>(std::istream& is, Timer& timer) {
 	// TODO
+	std::string line;
+	std::getline(is, line);
+	if (line.find("t0") != std::string::npos)
+		timer.t0 = std::stol(line.substr(line.find("=") + 1));
+	std::getline(is, line);
+	if (line.find("t") != std::string::npos)
+		timer.t = std::stol(line.substr(line.find("=") + 1));
+	timer.CalibrateTime();
 	return is;
 }
