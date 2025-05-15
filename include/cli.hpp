@@ -37,6 +37,7 @@ public:
 	explicit CLIRenderer(Game* game);
 
 	void WriteCursor() const;
+	void EraseCursor() const;
 	void WriteContent();
 	void MoveCursor(Direction dir);
 	void MoveCursor(int x, int y);

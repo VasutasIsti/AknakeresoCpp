@@ -12,7 +12,6 @@ CLIRenderer::CLIRenderer(Game* game): cursor(Cursor()) {
     keypad(window, true); // Engedelyezzuk a specialis billentyuket
 	// wprintw(window, "Hello World!\n");
     // wrefresh(window);            // Frissitjuk a képernyot
-    WriteContent();
     MoveCursor(game->getBoard().GetWidth() / 2, game->getBoard().GetHeight() / 2);
 }
 
@@ -47,6 +46,16 @@ void CLIRenderer::WriteCursor() const {
     wmove(window, cursor.NormalY(), cursor.NormalX() + 1);
     waddch(window, '>');
     wmove(window, 0, 0);
+    wrefresh(window);
+}
+
+void CLIRenderer::EraseCursor() const {
+    wmove(window, cursor.NormalY(), cursor.NormalX() -1);
+    waddch(window, ' ');
+    wmove(window, cursor.NormalY(), cursor.NormalX() + 1);
+    waddch(window, ' ');
+    wmove(window, 0, 0);
+    wrefresh(window);
 }
 
 void CLIRenderer::MoveCursor(Direction dir) {
@@ -61,6 +70,7 @@ void CLIRenderer::MoveCursor(Direction dir) {
 }
 
 void CLIRenderer::MoveCursor(const int x, const int y) {
+    EraseCursor();
     cursor.x = x;
     cursor.y = y;
     WriteCursor();

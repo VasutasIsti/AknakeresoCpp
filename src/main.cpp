@@ -44,6 +44,38 @@ int main() {
 
     // Innentol ncurses kiirasokat lehet csak hasznalni
     CLIRenderer renderer(game);
+    renderer.WriteContent();
+    renderer.WriteCursor();
+
+    while (game->getState() == INGAME) {
+        int ch = wgetch(renderer.window);
+        switch (ch) {
+            case KEY_LEFT:
+                renderer.MoveCursor(LEFT);
+                break;
+            case KEY_RIGHT:
+                renderer.MoveCursor(RIGHT);
+                break;
+            case KEY_UP:
+                renderer.MoveCursor(UP);
+                break;
+            case KEY_DOWN:
+                renderer.MoveCursor(DOWN);
+                break;
+            case 'f':
+                game->Flaging(renderer.cursor.x, renderer.cursor.y);
+                break;
+            case ' ':
+                game->VisitCell(renderer.cursor.x, renderer.cursor.y);
+                break;
+            case 'q':
+                game->SaveMidGame();
+                return 0;
+            default:
+                break;
+        }
+        renderer.WriteContent();
+    }
 
     //wprintw(renderer.window, "maybe it's workin'");
     wrefresh(renderer.window);
