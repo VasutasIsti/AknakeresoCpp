@@ -1,7 +1,3 @@
-//
-// Created by vasutasisti on 2025.04.11..
-//
-
 #include "undo.hpp"
 
 CellChange UndoHandler::Undo() {

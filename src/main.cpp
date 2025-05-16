@@ -27,46 +27,43 @@ int main() {
     bool undo;
     Game* game;
 
-    askQuestion<std::string>(user, "Username", Game::getDefUser());
+    askQuestion<std::string>(user, "Username", Game::GetDefUser());
     askQuestion<int>(x, "Width", Board::GetDefaultX());
     askQuestion<int>(y, "Height", Board::GetDefaultY());
     askQuestion<double>(diff, "Difficulty (0.0 - 0.9)", Board::GetDefaultDiff());
-    // stilus valtas, ez hamarabb volt, mint a tobbi... a tobbi meg egy kudarc lett xd
+    // stilus valtas, ez hamarabb volt, mint a tobbi...
     undo = askBoolean("enable undo [y/n]: ");
 
-    // Nem lehet nullas ertek egyik sem. Ha megis az, akkor default ertekekkel indul el a program.
-    if (x == 0 || y == 0 || diff == 0.0)
-        game = new Game();
-        if (undo)
-            game->getUndoHandler().EnableUndo();
-    else
-        game = new Game(x, y, diff, user, undo);
+    game = new Game(x, y, diff, user, undo);
 
     // Innentol ncurses kiirasokat lehet csak hasznalni
-    CLIRenderer renderer(game);
-    renderer.WriteContent();
-    renderer.WriteCursor();
+    CLIGameRenderer gameRen(game);
 
-    while (game->getState() == INGAME) {
-        int ch = wgetch(renderer.window);
+    while (game->GetState() == INGAME) {
+        int ch = wgetch(gameRen.window);
         switch (ch) {
             case KEY_LEFT:
-                renderer.MoveCursor(LEFT);
+                gameRen.MoveCursor(LEFT);
                 break;
             case KEY_RIGHT:
-                renderer.MoveCursor(RIGHT);
+                gameRen.MoveCursor(RIGHT);
                 break;
             case KEY_UP:
-                renderer.MoveCursor(UP);
+                gameRen.MoveCursor(UP);
                 break;
             case KEY_DOWN:
-                renderer.MoveCursor(DOWN);
+                gameRen.MoveCursor(DOWN);
                 break;
             case 'f':
-                game->Flaging(renderer.cursor.x, renderer.cursor.y);
+                game->Flaging(gameRen.cursor.x, gameRen.cursor.y);
+                gameRen.WriteContent();
                 break;
             case ' ':
-                game->VisitCell(renderer.cursor.x, renderer.cursor.y);
+                if (game->GetBoard().GetCell(gameRen.cursor.x, gameRen.cursor.y).GetIsVisited())
+                    game->VisitedSelected(gameRen.cursor.x, gameRen.cursor.y);
+                else
+                    game->VisitCell(gameRen.cursor.x, gameRen.cursor.y);
+                gameRen.WriteContent();
                 break;
             case 'q':
                 game->SaveMidGame();
@@ -74,12 +71,15 @@ int main() {
             default:
                 break;
         }
-        renderer.WriteContent();
+        gameRen.WriteContent();
     }
 
-    //wprintw(renderer.window, "maybe it's workin'");
-    wrefresh(renderer.window);
+    if (game->GetState() == WIN) {
+        game->Win();
+    }
+    else {
 
+    }
 #endif
 
     return 0;

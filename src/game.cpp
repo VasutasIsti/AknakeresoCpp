@@ -25,21 +25,58 @@ Game::Game(const int x, const int y, const double diff, std::string username, co
 }
 
 void Game::Flaging(const int x, const int y) {
+    if (GetBoard().GetCell(x, y).GetIsVisited())
+        return;
     undo.LogFlaging(x, y);
-    bool flaged = board.getCell(x, y).Flag();
+    bool flaged = board.GetCell(x, y).Flag();
     if (flaged) flagsRemaining--;
     else        flagsRemaining++;
 }
 
-void Game::VisitCell(const int x, const int y) {
-    undo.LogVisiting(x, y, true);
+void Game::VisitCell(const int x, const int y, bool direct) {
+    if (GetBoard().GetCell(x, y).GetIsFlaged())
+        return; // Zaszlos cellat nem lehet felfedezni
+    
+    undo.LogVisiting(x, y, direct);
+    bool bomb = GetBoard().GetCell(x, y).Visit();
+    if (bomb) {
+        Lose();
+        return;
+    }
 
-    //TODO
+    if (GetBoard().GetCell(x, y).GetNeighbourCount() > 0) {
+        GetBoard().GetCell(x, y).Visit();
+        notVisiteds--;
+    }
+    // Eddig jo az elso log
 
+    else {
+        std::vector<std::array<int, 2>> empties;
+        GetBoard().CheckAdjacents(x, y, empties);
+        for (int i = 0; i < empties.size(); i++){
+            undo.LogVisiting(empties[i][0], empties[i][1], false);
+            GetBoard().GetCell(empties[i][0], empties[i][1]).Visit();
+            notVisiteds--;
+        }
+    }
+
+    if (notVisiteds == 0)
+        Win();
 }
 
 void Game::VisitedSelected(const int x, const int y) {
-    //TODO undo logging szempontbol
+    if (GetBoard().NeighbouringFlags(x, y) != GetBoard().GetCell(x, y).GetNeighbourCount()) 
+        return;
+    
+    bool first = true;
+    // a legelso legalis cella valtozas lesz jatekos altali valtozasnak jelolve
+    for (int i = x-1; i <= x+1; i++)
+        for (int j = y-1; j <= y+1; j++)
+            if (GetBoard().IsOnBoard(i, j) && !GetBoard().GetCell(i, j).GetIsVisited()) {
+                VisitCell(i, j, first);
+                if (first && !GetBoard().GetCell(i, j).GetIsFlaged())
+                    first = false;
+            }
 }
 
 void Game::Undo() {
@@ -58,12 +95,12 @@ void Game::Undo() {
 
 void Game::Win() {
     // TODO
-    std::cout << username << " wins!\n";
+    
 }
 
 void Game::Lose() {
     // TODO
-    std::cout << username << " loses!\n";
+    
 }
 
 void Game::SaveMidGame() {

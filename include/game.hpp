@@ -37,14 +37,14 @@ public:
 
 
     // CSAK TESZTELESRE (egyenlore)
-    UndoHandler& getUndoHandler() { return undo; }
-    Board& getBoard() { return board; }
-    Timer& getTimer() { return timer; }
-    std::string getUsername() const { return username; }
-    static std::string getDefUser() {return defUser;} 
-    GameState getState() const { return state; }
-    int getFlagsRemaining() const { return flagsRemaining; }
-    int getNotVisiteds() const { return notVisiteds; }
+    UndoHandler& GetUndoHandler() { return undo; }
+    Board& GetBoard() { return board; }
+    Timer& GetTimer() { return timer; }
+    std::string GetUsername() const { return username; }
+    GameState GetState() const { return state; }
+    int GetFlagsRemaining() const { return flagsRemaining; }
+    int GetNotVisiteds() const { return notVisiteds; }
+    static std::string GetDefUser() {return defUser;} 
 
     // A fo, jatekmenetbeli funkciok
 
@@ -55,7 +55,7 @@ public:
     /// Egy cella felfedezese
     /// @param x Az oszlop sorszama
     /// @param y A sor sorszama
-    void VisitCell(int x, int y);
+    void VisitCell(int x, int y, bool direct = true);
     /// Mar felfedezett, akna szomszednyi zaszlos szomszeddal rendelkezo cellara kattintva
     /// felfedezi a szomszedos nem felfedezett, nem zaszlos cellakat. Ha az ures cella, akkor
     /// felderiti az egybefuggo ures teruletet is.

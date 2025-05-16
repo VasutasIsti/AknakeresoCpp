@@ -43,7 +43,7 @@ public:
     /// A visszavonas-kezeles eletbeleptetese
     void EnableUndo() {undoEnabled = true;}
     /// A visszavonas-kezeles aktivaltsagat adja vissza
-    bool getUndoEnabled() const {return undoEnabled;}
+    bool GetUndoEnabled() const {return undoEnabled;}
 
     /// Visszaadja a legutobbi valtozast, majd azt torli a listabol
     /// @return A legutolso valtozas parametereit

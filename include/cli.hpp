@@ -6,7 +6,8 @@
 // Itt volt egy majdnem 10 oranyi fejfajas, mivel a clion es az msys nem
 // tudott egymassal mit kezdeni, vagy linkelni nem tudott, vagy az ncurses
 // mukodese szunt meg teljesen. Ugyhogy ettol a ponttol IDE-valtas, valamint
-// teljeskoru linux developementbe valtas tortent. 
+// teljeskoru linux developementbe valtas tortent. Funy az egeszben, hogy nativ
+// linux alatt is makogott csak a clion, szoval en nem ertem mi van szegeny ide-vel...
 #include <ncurses.h>
 
 enum Direction {
@@ -25,24 +26,24 @@ public:
 
 //ncurses
 
-class CLIRenderer {
+class CLIGameRenderer {
 	Game* game;
 
-	char charToDisplay() const;
+	char CharToDisplay(Cursor local) const;
 
 public:
 	Cursor cursor;
 	WINDOW* window;
 
-	explicit CLIRenderer(Game* game);
+	explicit CLIGameRenderer(Game* game);
 
-	void WriteCursor() const;
 	void EraseCursor() const;
-	void WriteContent();
+	void WriteCursor() const;
+	void WriteContent() const;
 	void MoveCursor(Direction dir);
 	void MoveCursor(int x, int y);
 
-	~CLIRenderer();
+	~CLIGameRenderer();
 };
 
 #endif //CLI_HPP

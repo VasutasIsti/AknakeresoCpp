@@ -83,42 +83,42 @@ int main() {
 
 	TEST(Game, ctor) {
 		Game g;
-		EXPECT_EQ(false, g.getUndoHandler().getUndoEnabled());
-		EXPECT_EQ(25, g.getBoard().Size());
-		EXPECT_EQ(floor(25*0.2), g.getBoard().DiffToBombCount());
-		EXPECT_STREQ("Player", g.getUsername().c_str());
-		EXPECT_EQ(INGAME, g.getState());
-		EXPECT_EQ(g.getBoard().DiffToBombCount(), g.getFlagsRemaining());
-		EXPECT_EQ(g.getBoard().Size(), g.getNotVisiteds());
+		EXPECT_EQ(false, g.GetUndoHandler().GetUndoEnabled());
+		EXPECT_EQ(25, g.GetBoard().Size());
+		EXPECT_EQ(floor(25*0.2), g.GetBoard().DiffToBombCount());
+		EXPECT_STREQ("Player", g.GetUsername().c_str());
+		EXPECT_EQ(INGAME, g.GetState());
+		EXPECT_EQ(g.GetBoard().DiffToBombCount(), g.GetFlagsRemaining());
+		EXPECT_EQ(g.GetBoard().Size(), g.GetNotVisiteds());
 	} END
 
 	TEST(Game, ctorCustom) {
 		Game g(10, 10, 0.3, "Stefan", true);
-		EXPECT_EQ(true, g.getUndoHandler().getUndoEnabled());
-		EXPECT_EQ(100, g.getBoard().Size());
-		EXPECT_EQ(floor(100*0.3), g.getBoard().DiffToBombCount());
-		EXPECT_STREQ("Stefan", g.getUsername().c_str());
-		EXPECT_EQ(INGAME, g.getState());
-		EXPECT_EQ(g.getBoard().DiffToBombCount(), g.getFlagsRemaining());
-		EXPECT_EQ(g.getBoard().Size(), g.getNotVisiteds());
+		EXPECT_EQ(true, g.GetUndoHandler().GetUndoEnabled());
+		EXPECT_EQ(100, g.GetBoard().Size());
+		EXPECT_EQ(floor(100*0.3), g.GetBoard().DiffToBombCount());
+		EXPECT_STREQ("Stefan", g.GetUsername().c_str());
+		EXPECT_EQ(INGAME, g.GetState());
+		EXPECT_EQ(g.GetBoard().DiffToBombCount(), g.GetFlagsRemaining());
+		EXPECT_EQ(g.GetBoard().Size(), g.GetNotVisiteds());
 	} END
 
 	TEST(Game, Flaging) {
 		Game g;
 		g.Flaging(0, 0);
-		EXPECT_EQ(true, g.getBoard().getCell(0, 0).GetIsFlaged());
-		EXPECT_EQ(g.getBoard().DiffToBombCount()-1, g.getFlagsRemaining());
+		EXPECT_EQ(true, g.GetBoard().GetCell(0, 0).GetIsFlaged());
+		EXPECT_EQ(g.GetBoard().DiffToBombCount()-1, g.GetFlagsRemaining());
 		g.Flaging(0, 0);
-		EXPECT_EQ(false, g.getBoard().getCell(0, 0).GetIsFlaged());
-		EXPECT_EQ(g.getBoard().DiffToBombCount(), g.getFlagsRemaining());
+		EXPECT_EQ(false, g.GetBoard().GetCell(0, 0).GetIsFlaged());
+		EXPECT_EQ(g.GetBoard().DiffToBombCount(), g.GetFlagsRemaining());
 	} END
 
 	// A cella latogatas elesben nem csak egy cellat fedez fel
 	TEST(Game, VisitCell) {
 		Game g;
 		g.VisitCell(0, 0);
-		EXPECT_EQ(true, g.getBoard().getCell(0, 0).GetIsVisited());
-		EXPECT_LT(g.getBoard().Size()-1, g.getNotVisiteds());
+		EXPECT_EQ(true, g.GetBoard().GetCell(0, 0).GetIsVisited());
+		EXPECT_LT(g.GetBoard().Size()-1, g.GetNotVisiteds());
 	} END
 
 	TEST(Undo, inside) {
@@ -151,9 +151,9 @@ int main() {
 		ss >> game2;
 		// Legalabb az elso sor stimmel-e
 		for (size_t i = 0; i < 10; i++)
-			EXPECT_EQ(game1.getBoard().getCell(i, 0).GetNeighbourCount(), game2.getBoard().getCell(i, 0).GetNeighbourCount());
+			EXPECT_EQ(game1.GetBoard().GetCell(i, 0).GetNeighbourCount(), game2.GetBoard().GetCell(i, 0).GetNeighbourCount());
 		
-		EXPECT_STREQ(game1.getUsername().c_str(), game2.getUsername().c_str());
+		EXPECT_STREQ(game1.GetUsername().c_str(), game2.GetUsername().c_str());
 	} END
 
 	return 0;
