@@ -37,10 +37,11 @@ int main() {
     game = new Game(x, y, diff, user, undo);
 
     // Innentol ncurses kiirasokat lehet csak hasznalni
-    CLIGameRenderer gameRen(game);
+    CLIRenderer gameRen(game);
 
     while (game->GetState() == INGAME) {
-        int ch = wgetch(gameRen.window);
+        int ch = wgetch(gameRen.gameWindow);
+        gameRen.RefreshStats();
         switch (ch) {
             case KEY_LEFT:
                 gameRen.MoveCursor(LEFT);
@@ -65,20 +66,22 @@ int main() {
                     game->VisitCell(gameRen.cursor.x, gameRen.cursor.y);
                 gameRen.WriteContent();
                 break;
+            case 'z':
+                game->Undo();
+                gameRen.WriteContent();
             case 'q':
                 game->SaveMidGame();
                 return 0;
             default:
                 break;
         }
-        gameRen.WriteContent();
     }
 
     if (game->GetState() == WIN) {
         game->Win();
     }
-    else {
-
+    else /*if (game->GetState() == LOSE)*/ {
+        game->Lose();
     }
 #endif
 

@@ -26,24 +26,28 @@ public:
 
 //ncurses
 
-class CLIGameRenderer {
+class CLIRenderer {
 	Game* game;
 
 	char CharToDisplay(Cursor local) const;
 
 public:
 	Cursor cursor;
-	WINDOW* window;
+	WINDOW* gameWindow;
+	WINDOW* statsWindow;
+	WINDOW* endingWindow;
 
-	explicit CLIGameRenderer(Game* game);
+	explicit CLIRenderer(Game* game);
 
 	void EraseCursor() const;
 	void WriteCursor() const;
 	void WriteContent() const;
 	void MoveCursor(Direction dir);
 	void MoveCursor(int x, int y);
+	void RefreshStats() const;
+	void WinWindow() const;
 
-	~CLIGameRenderer();
+	~CLIRenderer();
 };
 
 #endif //CLI_HPP

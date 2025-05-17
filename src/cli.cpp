@@ -1,24 +1,31 @@
 #include "cli.hpp"
+#include <sstream>
 
-CLIGameRenderer::CLIGameRenderer(Game* game): cursor(Cursor()) {
+CLIRenderer::CLIRenderer(Game* game): cursor(Cursor()) {
 	this->game = game;
     initscr();			  // Ncurses inicializalasa
     cbreak();             // Nyers beviteli mod
     noecho();             // Ne jelentse meg a beirt karaktereket
-	window = newwin(this->game->GetBoard().GetHeight() + 2,
+	gameWindow = newwin(this->game->GetBoard().GetHeight() + 2,
                    (this->game->GetBoard().GetWidth() * 2) + 3,
                    0, 0);
-    wborder(window, 0, 0, 0, 0, 0, 0, 0, 0);
-    keypad(window, true); // Engedelyezzuk a specialis billentyuket
+    wborder(gameWindow, 0, 0, 0, 0, 0, 0, 0, 0);
+    statsWindow = newwin(5, 15,
+        0, (this->game->GetBoard().GetWidth() * 2) + 3 + 5);
+    endingWindow = newwin(1, 10,
+        this->game->GetBoard().GetHeight() + 2 + 1, 0);
+    wborder(statsWindow, 0, 0, 0, 0, 0, 0, 0, 0);
+    keypad(gameWindow, true); // Engedelyezzuk a specialis billentyuket
 	// wprintw(window, "Hello World!\n");
     // wrefresh(window);            // Frissitjuk a képernyot
     WriteContent();
+    RefreshStats();
     cursor.x = game->GetBoard().GetWidth() / 2;
     cursor.y = game->GetBoard().GetHeight() / 2;
     MoveCursor(cursor.x, cursor.y);
 }
 
-char CLIGameRenderer::CharToDisplay(Cursor local) const {
+char CLIRenderer::CharToDisplay(Cursor local) const {
     if (game->GetBoard().GetCell(local.x, local.y).GetIsFlaged())
         return '#';
     if (!game->GetBoard().GetCell(local.x, local.y).GetIsVisited())
@@ -33,41 +40,41 @@ char CLIGameRenderer::CharToDisplay(Cursor local) const {
     throw std::invalid_argument("Something went wrong");
 }
 
-void CLIGameRenderer::WriteContent() const {
+void CLIRenderer::WriteContent() const {
     Cursor local;
     for (local.x = 0; local.x < game->GetBoard().GetWidth(); local.x++)
         for (local.y = 0; local.y < game->GetBoard().GetHeight(); local.y++) {
-            wmove(window, local.NormalY(), local.NormalX());
-            waddch(window, CharToDisplay(local));
-            wrefresh(window);
+            wmove(gameWindow, local.NormalY(), local.NormalX());
+            waddch(gameWindow, CharToDisplay(local));
+            wrefresh(gameWindow);
         }
-    wmove(window, 0, 0);
-    wrefresh(window);
+    wmove(gameWindow, 0, 0);
+    wrefresh(gameWindow);
 }
 
-void CLIGameRenderer::WriteCursor() const {
-    wmove(window, cursor.NormalY(), cursor.NormalX() - 1);
-    waddch(window, '<');
-    wrefresh(window);
-    wmove(window, cursor.NormalY(), cursor.NormalX() + 1);
-    waddch(window, '>');
-    wrefresh(window);
-    wmove(window, 0, 0);
-    wrefresh(window);
+void CLIRenderer::WriteCursor() const {
+    wmove(gameWindow, cursor.NormalY(), cursor.NormalX() - 1);
+    waddch(gameWindow, '<');
+    wrefresh(gameWindow);
+    wmove(gameWindow, cursor.NormalY(), cursor.NormalX() + 1);
+    waddch(gameWindow, '>');
+    wrefresh(gameWindow);
+    wmove(gameWindow, 0, 0);
+    wrefresh(gameWindow);
 }
 
-void CLIGameRenderer::EraseCursor() const {
-    wmove(window, cursor.NormalY(), cursor.NormalX() -1);
-    waddch(window, ' ');
-    wrefresh(window);
-    wmove(window, cursor.NormalY(), cursor.NormalX() + 1);
-    waddch(window, ' ');
-    wrefresh(window);
-    wmove(window, 0, 0);
-    wrefresh(window);
+void CLIRenderer::EraseCursor() const {
+    wmove(gameWindow, cursor.NormalY(), cursor.NormalX() -1);
+    waddch(gameWindow, ' ');
+    wrefresh(gameWindow);
+    wmove(gameWindow, cursor.NormalY(), cursor.NormalX() + 1);
+    waddch(gameWindow, ' ');
+    wrefresh(gameWindow);
+    wmove(gameWindow, 0, 0);
+    wrefresh(gameWindow);
 }
 
-void CLIGameRenderer::MoveCursor(Direction dir) {
+void CLIRenderer::MoveCursor(Direction dir) {
     if (dir == LEFT && cursor.x > 0)
         MoveCursor(cursor.x - 1, cursor.y);
     else if (dir == RIGHT && cursor.x < game->GetBoard().GetWidth() - 1)
@@ -78,16 +85,40 @@ void CLIGameRenderer::MoveCursor(Direction dir) {
         MoveCursor(cursor.x, cursor.y + 1);
 }
 
-void CLIGameRenderer::MoveCursor(const int x, const int y) {
+void CLIRenderer::MoveCursor(const int x, const int y) {
     EraseCursor();
     cursor.x = x;
     cursor.y = y;
     WriteCursor();
 }
 
-CLIGameRenderer::~CLIGameRenderer() {
+void CLIRenderer::RefreshStats() const {
+    std::stringstream ss1, ss2;
+    std::string str1, str2;
+
+    wmove(statsWindow, 1, 1);
+    wprintw(statsWindow, "time: ");
+    ss1 << game->GetTimer().GetDeltaTime();
+    ss1 >> str1;
+    wprintw(statsWindow, str1.c_str());
+    wrefresh(statsWindow);
+    wmove(statsWindow, 2, 1);
+    wprintw(statsWindow, "flags: ");
+    ss2 << game->GetFlagsRemaining();
+    ss2 >> str2;
+    wprintw(statsWindow, str2.c_str());
+
+    wrefresh(statsWindow);
+}
+
+void CLIRenderer::WinWindow() const {
+    wborder(endingWindow, 0, 0, 0, 0, 0, 0, 0, 0);
+    wmove(endingWindow)
+}
+
+CLIRenderer::~CLIRenderer() {
     // wclear(window);
-	delwin(window);
+	delwin(gameWindow);
     clear();
 	endwin();
 }

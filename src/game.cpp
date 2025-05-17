@@ -1,5 +1,6 @@
 #include "game.hpp"
 #include <utility>      // string Masolasok miatt
+#include <fstream>
 
 std::string Game::defUser = "Player";
 
@@ -105,6 +106,9 @@ void Game::Lose() {
 
 void Game::SaveMidGame() {
     // TODO
+    std::ofstream file("GameState.txt");
+    file << *this;
+    file.close();
 }
 
 std::ostream& operator<<(std::ostream& os, const Game& game) {

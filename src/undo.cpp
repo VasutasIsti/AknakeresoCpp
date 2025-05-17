@@ -7,7 +7,7 @@ CellChange UndoHandler::Undo() {
 }
 
 std::ostream& operator<<(std::ostream& os, const CellChange& c) {
-	os << "{" << c.x << ", " <<
+	os << "{" << c.x << "," <<
 				 c.y << "," <<
 				 c.changedByPlayer << "," <<
 				 c.flagedOrVisited << "}";

@@ -17,11 +17,10 @@ int Board::NeighbourCount(const int x, const int y) const {
     if (cells[x][y].GetIsBomb())
         return -1;
     int neighbours = 0;
-    if (IsOnBoard(x, y))
-        for (int i = x-1; i <= x+1; i++)
-            for (int j = y-1; j <= y+1; j++)
-                if (IsOnBoard(i, j) && cells[i][j].GetIsBomb())
-                    neighbours++;
+    for (int i = x-1; i <= x+1; i++)
+        for (int j = y-1; j <= y+1; j++)
+            if (IsOnBoard(i, j) && cells[i][j].GetIsBomb())
+                neighbours++;
     return neighbours;
 }
 
@@ -47,8 +46,8 @@ bool Board::IsEmptyListed(int x, int y, const std::vector<std::array<int, 2>>& e
     return false;
 }
 
-void Board::CheckAdjacents(const int x, const int y, std::vector<std::array<int, 2>>& empties) const {
-    empties[empties.size()] = {x,y};
+void Board::CheckAdjacents(const int x, const int y, std::vector<std::array<int, 2>>& empties) {
+    empties.push_back(std::array<int, 2>({x,y}));
     for (int i = x-1; i <= x+1; i++)
         for (int j = y-1; j <= y+1; j++) {
             if ((i == x && j == y) || !IsOnBoard(i, j) || IsEmptyListed(i, j, empties))
@@ -56,7 +55,7 @@ void Board::CheckAdjacents(const int x, const int y, std::vector<std::array<int,
             if (cells[i][j].GetNeighbourCount() == 0 && !cells[i][j].GetIsVisited())
                 CheckAdjacents(i, j, empties);
             else if (cells[i][j].GetNeighbourCount() > 0)
-                empties[empties.size()] = {i, j};
+                empties.push_back(std::array<int, 2>({i, j}));
         }
 }
 
@@ -88,7 +87,7 @@ int Board::NeighbouringFlags(const int x, const int y) const {
     int sum = 0;
     for (int i = x-1; i <= x+1; i++)
         for (int j = y-1; j <= y+1; j++)
-            if (!(i==x && j == x) && IsOnBoard(i, j) && cells[i][j].GetIsVisited())
+            if (!(i==x && j == x) && IsOnBoard(i, j) && cells[i][j].GetIsFlaged())
                 sum++;
     return sum;
 }
