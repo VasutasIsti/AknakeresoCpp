@@ -77,8 +77,10 @@ int main() {
             case 'z':
                 game->Undo();
                 gameRen.WriteContent();
+                break;
             case 'q':
                 game->SaveMidGame();
+                delete game;
                 return 0;
             default:
                 break;
@@ -93,6 +95,8 @@ int main() {
         gameRen.LoseWindow();
     }
 #endif  // NOTREADY
+
+    delete game;
 
     return 0;
 }

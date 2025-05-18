@@ -3,8 +3,9 @@
 #include "cell.hpp"
 #include "unistd.h"
 
-
+#ifndef CPORTA
 #define CPORTA
+#endif
 
 #ifdef CPORTA
 int main() {
