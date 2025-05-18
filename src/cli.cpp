@@ -10,9 +10,9 @@ CLIRenderer::CLIRenderer(Game* game): cursor(Cursor()) {
                    (this->game->GetBoard().GetWidth() * 2) + 3,
                    0, 0);
     wborder(gameWindow, 0, 0, 0, 0, 0, 0, 0, 0);
-    statsWindow = newwin(5, 15,
+    statsWindow = newwin(5, 20,
         0, (this->game->GetBoard().GetWidth() * 2) + 3 + 5);
-    endingWindow = newwin(1, 10,
+    endingWindow = newwin(3, 37,
         this->game->GetBoard().GetHeight() + 2 + 1, 0);
     wborder(statsWindow, 0, 0, 0, 0, 0, 0, 0, 0);
     keypad(gameWindow, true); // Engedelyezzuk a specialis billentyuket
@@ -93,31 +93,53 @@ void CLIRenderer::MoveCursor(const int x, const int y) {
 }
 
 void CLIRenderer::RefreshStats() const {
-    std::stringstream ss1, ss2;
-    std::string str1, str2;
+    std::stringstream ss1, ss2, ss3;    // valamiert atmentodnek a vegere ha csak egy valtozot hasznalok
+    std::string str1, str2, str3;
 
     wmove(statsWindow, 1, 1);
     wprintw(statsWindow, "time: ");
     ss1 << game->GetTimer().GetDeltaTime();
     ss1 >> str1;
-    wprintw(statsWindow, str1.c_str());
+    waddstr(statsWindow, str1.c_str());
+    waddstr(statsWindow, "    ");
     wrefresh(statsWindow);
     wmove(statsWindow, 2, 1);
     wprintw(statsWindow, "flags: ");
     ss2 << game->GetFlagsRemaining();
     ss2 >> str2;
-    wprintw(statsWindow, str2.c_str());
-
+    waddstr(statsWindow, str2.c_str());
+    waddstr(statsWindow, "    ");
+    wrefresh(statsWindow);
+    wmove(statsWindow, 3, 1);
+    wprintw(statsWindow, "notVisited: ");
+    ss3 << game->GetNotVisiteds();
+    ss3 >> str3;
+    waddstr(statsWindow, str3.c_str());
+    waddstr(statsWindow, "    ");
     wrefresh(statsWindow);
 }
 
 void CLIRenderer::WinWindow() const {
     wborder(endingWindow, 0, 0, 0, 0, 0, 0, 0, 0);
-    wmove(endingWindow)
+    wmove(endingWindow, 0, 0);
+    wprintw(endingWindow, "You won! (Press a key to continue)");
+    wrefresh(endingWindow);
+
+    wgetch(gameWindow);
+}
+
+void CLIRenderer::LoseWindow() const {
+    wborder(endingWindow, 0, 0, 0, 0, 0, 0, 0, 0);
+    wmove(endingWindow, 0, 0);
+    wprintw(endingWindow, "You lost! (Press a key to continue)");
+    wrefresh(endingWindow);
+    wgetch(gameWindow);
 }
 
 CLIRenderer::~CLIRenderer() {
     // wclear(window);
+    delwin(endingWindow);
+    delwin(statsWindow);
 	delwin(gameWindow);
     clear();
 	endwin();

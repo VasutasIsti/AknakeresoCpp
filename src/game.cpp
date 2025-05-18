@@ -11,7 +11,7 @@ Game::Game() :
     username(defUser),
     state(INGAME),
     flagsRemaining(board.DiffToBombCount()),
-    notVisiteds(board.Size()) {}
+    notVisiteds(board.Size() - board.DiffToBombCount()) {}
 
 Game::Game(const int x, const int y, const double diff, std::string username, const bool undoEnabled) :
     undo(UndoHandler()),
@@ -20,7 +20,7 @@ Game::Game(const int x, const int y, const double diff, std::string username, co
     username(std::move(username)),
     state(INGAME),
     flagsRemaining(board.DiffToBombCount()),
-    notVisiteds(board.Size()) {
+    notVisiteds(board.Size() - board.DiffToBombCount()) {
     if (undoEnabled)
         undo.EnableUndo();
 }
@@ -96,12 +96,20 @@ void Game::Undo() {
 
 void Game::Win() {
     // TODO
-    
+    state = WIN;
+    std::ofstream file("Leaderboard.txt", std::ios::app);
+    file << username << ";" <<
+        GetBoard().GetWidth() << "x" << GetBoard().GetHeight() << ";" <<
+        GetBoard().GetDifficulty() << ";" <<
+        GetTimer().GetDeltaTime() << "\n";
+    file.close();
+    std::remove("GameState.txt");
 }
 
 void Game::Lose() {
     // TODO
-    
+    state = LOSE;
+    std::remove("GameState.txt");
 }
 
 void Game::SaveMidGame() {

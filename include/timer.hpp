@@ -21,8 +21,11 @@ public:
     /// frissiti a t-ben tarolt "aktualis", valamint visszaadja az eltelt idot
     /// @return A timer inicializalasa ota eltelt ido (time_t)
     time_t GetDeltaTime();
-
+    /// @brief A kezdo ido elerese
+    /// @return t0 erteke
     time_t GetT0() const {return t0;}
+    /// @brief Az aktualis ido elerese
+    /// @return t erteke
     time_t GetT() const {return t;}
     /// Kiiros fuggveny ostream-mekre
     friend std::ostream& operator<<(std::ostream& os, const Timer& timer);

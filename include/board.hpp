@@ -53,13 +53,23 @@ class Board {
     
     /// Visszaadja a palya teljes meretet
     int Size() const {return sizeX * sizeY;}
-    
+    /// @brief Visszadja a palyan alkalmazott nehezseget
+    /// @return difficulty erteket
+    double GetDifficulty() const {return difficulty;}
+    /// @brief Visszaadja a palya szelesseget
+    /// @return x erteke
     int GetWidth() const {return sizeX;}
-    
+    /// @brief Visszaadja a palya magassagat
+    /// @return y erteke
     int GetHeight() const {return sizeY;}
-    
+    /// @brief Az alapertelmezett szelesseget adja vissza
+    /// @return defaultx erteke
     static int GetDefaultX() {return defaultx;}
+    /// @brief Az alapertelmezett magassagot adja vissza
+    /// @return defaulty erteke
     static int GetDefaultY() {return defaulty;}
+    /// @brief Az alapertelmezett nehezseget adja vissza
+    /// @return defaultdiff erteke
     static double GetDefaultDiff() {return defaultdiff;}
     /// A palya nehezsegebol szamolja ki az aknak szamat
     int DiffToBombCount() const {return floor(sizeX*sizeY*difficulty);}

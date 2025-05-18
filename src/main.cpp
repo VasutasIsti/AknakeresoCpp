@@ -3,15 +3,17 @@
 #include "templates.hpp"
 #include "game.hpp"
 #include "cli.hpp"
+#include <fstream>
 
 // Amiket ugymond kotelezo. A pelda NHF fajlaibol all,
 // ezek elvileg 2022-es modositasuk, remelem ez az a verzio ami kell
 //#define MEMTRACE
 
-#define READY
+// Csak es kizarolag a (nem automatizalt) tesztelesre hasznalt makro. 
+// #define NOTREADY
 
 int main() {
-#ifndef READY
+#ifdef NOTREADY
     Game game(5, 10, 0.3, "Stefan", true);
     std::cout << game << "\n---------------------------------\n\n";
     game.Flaging(0, 0);
@@ -20,28 +22,34 @@ int main() {
     std::cout << game;
 #endif
 
-#ifdef READY
+#ifndef NOTREADY
     std::string user = "Player";
     int x = 0, y = 0;
     double diff = 0.0;
     bool undo;
     Game* game;
 
-    askQuestion<std::string>(user, "Username", Game::GetDefUser());
-    askQuestion<int>(x, "Width", Board::GetDefaultX());
-    askQuestion<int>(y, "Height", Board::GetDefaultY());
-    askQuestion<double>(diff, "Difficulty (0.0 - 0.9)", Board::GetDefaultDiff());
-    // stilus valtas, ez hamarabb volt, mint a tobbi...
-    undo = askBoolean("enable undo [y/n]: ");
-
-    game = new Game(x, y, diff, user, undo);
-
+    std::ifstream file("GameState.txt");
+    if (file.good() && askBoolean("Do you want to continue the last unfinished game? [y/n]: ")) {
+        game = new Game();
+        file >> *game;
+    }
+    else {
+        askQuestion<std::string>(user, "Username", Game::GetDefUser());
+        askQuestion<int>(x, "Width", Board::GetDefaultX());
+        askQuestion<int>(y, "Height", Board::GetDefaultY());
+        askQuestion<double>(diff, "Difficulty (0.0 - 0.9)", Board::GetDefaultDiff());
+        // stilus valtas, ez hamarabb volt, mint a tobbi...
+        undo = askBoolean("enable undo [y/n]: ");
+        game = new Game(x, y, diff, user, undo);
+    }
+    file.close();
     // Innentol ncurses kiirasokat lehet csak hasznalni
     CLIRenderer gameRen(game);
 
-    while (game->GetState() == INGAME) {
-        int ch = wgetch(gameRen.gameWindow);
+    while (game->GetState() == INGAME || game->GetUndoHandler().GetUndoEnabled()) {
         gameRen.RefreshStats();
+        int ch = wgetch(gameRen.gameWindow);
         switch (ch) {
             case KEY_LEFT:
                 gameRen.MoveCursor(LEFT);
@@ -77,11 +85,12 @@ int main() {
         }
     }
 
-    if (game->GetState() == WIN) {
-        game->Win();
+    // A win es lose fuggvenyeket mar a visitCell meghivta, azokkal itt nem kell torodni.
+    if (game->GetState() == WIN && !game->GetUndoHandler().GetUndoEnabled()) {
+        gameRen.WinWindow();
     }
-    else /*if (game->GetState() == LOSE)*/ {
-        game->Lose();
+    else if (/* game->GetState() == LOSE || */ !game->GetUndoHandler().GetUndoEnabled()) {
+        gameRen.LoseWindow();
     }
 #endif
 

@@ -5,7 +5,7 @@
 #include "timer.hpp"
 #include "undo.hpp"
 
-
+/// @brief A jatek allapotanak leirasara szolgalo enum.
 enum GameState {
     INGAME,
     WIN,
@@ -23,7 +23,7 @@ class Game {
     int flagsRemaining; ///< Hany zaszlot lehet meg elhelyezni a palyan
     int notVisiteds;    ///< Meg hany cellat kell 
     
-    static std::string defUser;
+    static std::string defUser; ///< Alapertelmezett felhasznalonev
 public:
     /// Default Konstruktor
     Game();
@@ -36,14 +36,29 @@ public:
     Game(int x, int y, double diff, std::string username, bool undoEnabled = false);
 
 
-    // CSAK TESZTELESRE (egyenlore)
+    /// @brief A jatekhoz tartozo visszavonas-kezelo elerese
+    /// @return A jatekhoz tartozo Visszavonas-kezelo
     UndoHandler& GetUndoHandler() { return undo; }
+    /// @brief A jatekhoz tartozo palya elerese
+    /// @return A jatekhoz tartozo palya
     Board& GetBoard() { return board; }
+    /// @brief A jatekhoz tartozo idomero elerese
+    /// @return A jatekhoz tartozo idomero
     Timer& GetTimer() { return timer; }
+    /// @brief A jatekhoz tartozo felhasznalonev elerese
+    /// @return A jatekhoz tartozo felhasznalonev
     std::string GetUsername() const { return username; }
+    /// @brief A jatekhoz tartozo allapot elerese
+    /// @return A jatekhoz tartozo allapot
     GameState GetState() const { return state; }
+    /// @brief A jatekban meg kiosztando zaszlok szamanak elerese
+    /// @return A flagsRemaining erteke
     int GetFlagsRemaining() const { return flagsRemaining; }
+    /// @brief A jatekban meg nem latogatott cellak szamanak elerese
+    /// @return A notVisiteds erteke
     int GetNotVisiteds() const { return notVisiteds; }
+    /// @brief A jatek alapertelmezett felhasznalonevenek elerese
+    /// @return defUser erteke
     static std::string GetDefUser() {return defUser;} 
 
     // A fo, jatekmenetbeli funkciok
