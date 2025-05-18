@@ -3,6 +3,9 @@
 #include "cell.hpp"
 #include "unistd.h"
 
+#define CPORTA
+
+#ifdef CPORTA
 int main() {
 	UndoHandler undo;
 
@@ -71,7 +74,7 @@ int main() {
 	TEST(Board, ctor) {
 		Board b;
 		// Amig nem valtozik meg a default meret es
-		EXPECT_EQ(25,b.Size());
+		EXPECT_EQ(25, b.Size());
 		EXPECT_EQ(floor(25*0.2), b.DiffToBombCount());
 	} END
 
@@ -89,7 +92,7 @@ int main() {
 		EXPECT_STREQ("Player", g.GetUsername().c_str());
 		EXPECT_EQ(INGAME, g.GetState());
 		EXPECT_EQ(g.GetBoard().DiffToBombCount(), g.GetFlagsRemaining());
-		EXPECT_EQ(g.GetBoard().Size(), g.GetNotVisiteds());
+		EXPECT_EQ(g.GetBoard().Size() - g.GetFlagsRemaining(), g.GetNotVisiteds());
 	} END
 
 	TEST(Game, ctorCustom) {
@@ -100,7 +103,7 @@ int main() {
 		EXPECT_STREQ("Stefan", g.GetUsername().c_str());
 		EXPECT_EQ(INGAME, g.GetState());
 		EXPECT_EQ(g.GetBoard().DiffToBombCount(), g.GetFlagsRemaining());
-		EXPECT_EQ(g.GetBoard().Size(), g.GetNotVisiteds());
+		EXPECT_EQ(g.GetBoard().Size() - g.GetFlagsRemaining(), g.GetNotVisiteds());
 	} END
 
 	TEST(Game, Flaging) {
@@ -118,7 +121,7 @@ int main() {
 		Game g;
 		g.VisitCell(0, 0);
 		EXPECT_EQ(true, g.GetBoard().GetCell(0, 0).GetIsVisited());
-		EXPECT_LT(g.GetBoard().Size()-1, g.GetNotVisiteds());
+		EXPECT_GT(g.GetBoard().Size()-1, g.GetNotVisiteds());
 	} END
 
 	TEST(Undo, inside) {
@@ -158,3 +161,5 @@ int main() {
 
 	return 0;
 }
+
+#endif

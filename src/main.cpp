@@ -11,7 +11,7 @@
 
 // Csak es kizarolag a (nem automatizalt) tesztelesre hasznalt makro. 
 // #define NOTREADY
-
+#ifndef CPORTA
 int main() {
 #ifdef NOTREADY
     Game game(5, 10, 0.3, "Stefan", true);
@@ -92,7 +92,8 @@ int main() {
     else if (/* game->GetState() == LOSE || */ !game->GetUndoHandler().GetUndoEnabled()) {
         gameRen.LoseWindow();
     }
-#endif
+#endif  // NOTREADY
 
     return 0;
 }
+#endif  // CPORTA
