@@ -8,6 +8,8 @@ var annotated_dup =
     [ "Board", "class_board.html", "class_board" ],
     [ "Cell", "class_cell.html", "class_cell" ],
     [ "CellChange", "class_cell_change.html", "class_cell_change" ],
+    [ "CLIRenderer", "class_c_l_i_renderer.html", "class_c_l_i_renderer" ],
+    [ "Cursor", "struct_cursor.html", "struct_cursor" ],
     [ "Game", "class_game.html", "class_game" ],
     [ "Timer", "class_timer.html", "class_timer" ],
     [ "UndoHandler", "class_undo_handler.html", "class_undo_handler" ]

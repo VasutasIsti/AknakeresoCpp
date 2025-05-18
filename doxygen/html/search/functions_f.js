@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['_7eboard_0',['~Board',['../classBoard.html#af73f45730119a1fd8f6670f53f959e68',1,'Board']]],
-  ['_7etest_1',['~Test',['../structgtest__lite_1_1Test.html#a5a879233c2aa110626668c06140f6e71',1,'gtest_lite::Test']]]
+  ['visit_0',['Visit',['../class_cell.html#a1e148b3966cebedbd57d35b98aef5cc5',1,'Cell']]],
+  ['visitcell_1',['VisitCell',['../class_game.html#a8c3f69d8405eaf234152754141b01550',1,'Game']]],
+  ['visitedselected_2',['VisitedSelected',['../class_game.html#aa14c099aafe9c03368325aff4fba08a5',1,'Game']]]
 ];

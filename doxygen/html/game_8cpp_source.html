@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Aknakereso<span id="projectnumber">&#160;0.2</span>
+   <div id="projectname">Aknakereso<span id="projectnumber">&#160;0.4</span>
    </div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
@@ -147,87 +147,88 @@ $(function(){initNavTree('game_8cpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    undo.LogVisiting(x, y, <span class="keyword">true</span>);</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">//TODO</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>}</div>
 </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_game.html#aa14c099aafe9c03368325aff4fba08a5">   38</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game.html#aa14c099aafe9c03368325aff4fba08a5">Game::VisitedSelected</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">int</span> y) {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="comment">//TODO undo logging szempontbol</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>}</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="}">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_game.html#aa14c099aafe9c03368325aff4fba08a5">   39</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game.html#aa14c099aafe9c03368325aff4fba08a5">Game::VisitedSelected</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> x, <span class="keyword">const</span> <span class="keywordtype">int</span> y) {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">//TODO undo logging szempontbol</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
 </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_game.html#a9acf908745745a6576c729e620136367">   42</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game.html#a9acf908745745a6576c729e620136367">Game::Undo</a>() {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="class_cell_change.html">CellChange</a> current;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">do</span> {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        current = undo.Undo();</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="comment">// Igaz, ha a visszavonas utan zaszlo lett a cellan</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordtype">bool</span> flagstate = board.Undo(current);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">if</span> (current.<a class="code hl_variable" href="class_cell_change.html#a4066181a3eea38609ac7e94cb658df8f">flagedOrVisited</a>) {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordflow">if</span> (flagstate) flagsRemaining++;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordflow">else</span>           flagsRemaining--;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordflow">else</span> notVisiteds++;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    } <span class="keywordflow">while</span> (current.<a class="code hl_variable" href="class_cell_change.html#ab68a09ca18fd79d65aa85b36d00a0068">changedByPlayer</a>);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_game.html#a9acf908745745a6576c729e620136367">   43</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game.html#a9acf908745745a6576c729e620136367">Game::Undo</a>() {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="class_cell_change.html">CellChange</a> current;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordflow">do</span> {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        current = undo.Undo();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="comment">// Igaz, ha a visszavonas utan zaszlo lett a cellan</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">bool</span> flagstate = board.Undo(current);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">if</span> (current.<a class="code hl_variable" href="class_cell_change.html#a4066181a3eea38609ac7e94cb658df8f">flagedOrVisited</a>) {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordflow">if</span> (flagstate) flagsRemaining++;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="keywordflow">else</span>           flagsRemaining--;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordflow">else</span> notVisiteds++;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    } <span class="keywordflow">while</span> (!current.<a class="code hl_variable" href="class_cell_change.html#ab68a09ca18fd79d65aa85b36d00a0068">changedByPlayer</a>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
 </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_game.html#a706a8a60e8e93da5a5c48a4db0e1b194">   56</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game.html#a706a8a60e8e93da5a5c48a4db0e1b194">Game::Win</a>() {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">// TODO</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    std::cout &lt;&lt; username &lt;&lt; <span class="stringliteral">&quot; wins!\n&quot;</span>;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>}</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_game.html#a706a8a60e8e93da5a5c48a4db0e1b194">   57</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game.html#a706a8a60e8e93da5a5c48a4db0e1b194">Game::Win</a>() {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="comment">// TODO</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    std::cout &lt;&lt; username &lt;&lt; <span class="stringliteral">&quot; wins!\n&quot;</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
 </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="class_game.html#a05af06bf0971e351184b90898387e131">   61</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game.html#a05af06bf0971e351184b90898387e131">Game::Lose</a>() {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="comment">// TODO</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    std::cout &lt;&lt; username &lt;&lt; <span class="stringliteral">&quot; loses!\n&quot;</span>;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_game.html#a05af06bf0971e351184b90898387e131">   62</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game.html#a05af06bf0971e351184b90898387e131">Game::Lose</a>() {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="comment">// TODO</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    std::cout &lt;&lt; username &lt;&lt; <span class="stringliteral">&quot; loses!\n&quot;</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
 </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_game.html#abd2148a09f874d11fa2290f609352c55">   66</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game.html#abd2148a09f874d11fa2290f609352c55">Game::SaveMidGame</a>() {</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="comment">// TODO</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="class_game.html#abd2148a09f874d11fa2290f609352c55">   67</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="class_game.html#abd2148a09f874d11fa2290f609352c55">Game::SaveMidGame</a>() {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">// TODO</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
 </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="class_game.html#aabae0ecb266ff0bd9f48a1f5f9e316e9">   70</a></span>std::ostream&amp; <a class="code hl_function" href="game_8cpp.html#aabae0ecb266ff0bd9f48a1f5f9e316e9">operator&lt;&lt;</a>(std::ostream&amp; os, <span class="keyword">const</span> <a class="code hl_function" href="class_game.html#ad59df6562a58a614fda24622d3715b65">Game</a>&amp; game) {</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    os &lt;&lt; <span class="stringliteral">&quot;username=&quot;</span> &lt;&lt; game.username &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    os &lt;&lt; <span class="stringliteral">&quot;state=&quot;</span> &lt;&lt; game.state &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    os &lt;&lt; <span class="stringliteral">&quot;flagsRemaining=&quot;</span> &lt;&lt; game.flagsRemaining &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    os &lt;&lt; <span class="stringliteral">&quot;notVisiteds=&quot;</span> &lt;&lt; game.notVisiteds &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    os &lt;&lt; <span class="stringliteral">&quot;\nTIMER\n&quot;</span> &lt;&lt; game.timer &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    os &lt;&lt; <span class="stringliteral">&quot;\nBOARD\n&quot;</span> &lt;&lt; game.board &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    os &lt;&lt; <span class="stringliteral">&quot;\nUNDOHANDLER\n&quot;</span> &lt;&lt; game.undo &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">return</span> os;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="class_game.html#aabae0ecb266ff0bd9f48a1f5f9e316e9">   71</a></span>std::ostream&amp; <a class="code hl_function" href="game_8cpp.html#aabae0ecb266ff0bd9f48a1f5f9e316e9">operator&lt;&lt;</a>(std::ostream&amp; os, <span class="keyword">const</span> <a class="code hl_function" href="class_game.html#ad59df6562a58a614fda24622d3715b65">Game</a>&amp; game) {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    os &lt;&lt; <span class="stringliteral">&quot;username=&quot;</span> &lt;&lt; game.username &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    os &lt;&lt; <span class="stringliteral">&quot;state=&quot;</span> &lt;&lt; game.state &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    os &lt;&lt; <span class="stringliteral">&quot;flagsRemaining=&quot;</span> &lt;&lt; game.flagsRemaining &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    os &lt;&lt; <span class="stringliteral">&quot;notVisiteds=&quot;</span> &lt;&lt; game.notVisiteds &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    os &lt;&lt; <span class="stringliteral">&quot;\nTIMER\n&quot;</span> &lt;&lt; game.timer &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    os &lt;&lt; <span class="stringliteral">&quot;\nBOARD\n&quot;</span> &lt;&lt; game.board &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    os &lt;&lt; <span class="stringliteral">&quot;\nUNDOHANDLER\n&quot;</span> &lt;&lt; game.undo &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">return</span> os;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}</div>
 </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="foldopen" id="foldopen00082" data-start="{" data-end="}">
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="class_game.html#a1a969ba7738add74cbd75e85e76bca2f">   82</a></span>std::istream&amp; <a class="code hl_function" href="game_8cpp.html#a1a969ba7738add74cbd75e85e76bca2f">operator&gt;&gt;</a>(std::istream&amp; is, <a class="code hl_function" href="class_game.html#ad59df6562a58a614fda24622d3715b65">Game</a>&amp; game) {</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="comment">// TODO</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordflow">return</span> is;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="class_game.html#a1a969ba7738add74cbd75e85e76bca2f">   83</a></span>std::istream&amp; <a class="code hl_function" href="game_8cpp.html#a1a969ba7738add74cbd75e85e76bca2f">operator&gt;&gt;</a>(std::istream&amp; is, <a class="code hl_function" href="class_game.html#ad59df6562a58a614fda24622d3715b65">Game</a>&amp; game) {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="comment">// TODO</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">return</span> is;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
 </div>
 <div class="ttc" id="aclass_board_html"><div class="ttname"><a href="class_board.html">Board</a></div><div class="ttdef"><b>Definition</b> <a href="board_8hpp_source.html#l00013">board.hpp:13</a></div></div>
 <div class="ttc" id="aclass_cell_change_html"><div class="ttname"><a href="class_cell_change.html">CellChange</a></div><div class="ttdoc">Egy cella valtozasat roggzito adatstruktura.</div><div class="ttdef"><b>Definition</b> <a href="undo_8hpp_source.html#l00008">undo.hpp:8</a></div></div>
 <div class="ttc" id="aclass_cell_change_html_a4066181a3eea38609ac7e94cb658df8f"><div class="ttname"><a href="class_cell_change.html#a4066181a3eea38609ac7e94cb658df8f">CellChange::flagedOrVisited</a></div><div class="ttdeci">bool flagedOrVisited</div><div class="ttdef"><b>Definition</b> <a href="undo_8hpp_source.html#l00014">undo.hpp:14</a></div></div>
 <div class="ttc" id="aclass_cell_change_html_ab68a09ca18fd79d65aa85b36d00a0068"><div class="ttname"><a href="class_cell_change.html#ab68a09ca18fd79d65aa85b36d00a0068">CellChange::changedByPlayer</a></div><div class="ttdeci">bool changedByPlayer</div><div class="ttdoc">Igaz, ha az adott cella kezdte a valtozas sort.</div><div class="ttdef"><b>Definition</b> <a href="undo_8hpp_source.html#l00013">undo.hpp:13</a></div></div>
-<div class="ttc" id="aclass_game_html_a05af06bf0971e351184b90898387e131"><div class="ttname"><a href="class_game.html#a05af06bf0971e351184b90898387e131">Game::Lose</a></div><div class="ttdeci">void Lose()</div><div class="ttdoc">Vesztes eseten szukseges feladatok megvalositasa.</div><div class="ttdef"><b>Definition</b> <a href="#l00061">game.cpp:61</a></div></div>
+<div class="ttc" id="aclass_game_html_a05af06bf0971e351184b90898387e131"><div class="ttname"><a href="class_game.html#a05af06bf0971e351184b90898387e131">Game::Lose</a></div><div class="ttdeci">void Lose()</div><div class="ttdoc">Vesztes eseten szukseges feladatok megvalositasa.</div><div class="ttdef"><b>Definition</b> <a href="#l00062">game.cpp:62</a></div></div>
 <div class="ttc" id="aclass_game_html_a0fe26e2b608b3f09cc2a5377fc9c1e87"><div class="ttname"><a href="class_game.html#a0fe26e2b608b3f09cc2a5377fc9c1e87">Game::Flaging</a></div><div class="ttdeci">void Flaging(int x, int y)</div><div class="ttdef"><b>Definition</b> <a href="#l00025">game.cpp:25</a></div></div>
-<div class="ttc" id="aclass_game_html_a706a8a60e8e93da5a5c48a4db0e1b194"><div class="ttname"><a href="class_game.html#a706a8a60e8e93da5a5c48a4db0e1b194">Game::Win</a></div><div class="ttdeci">void Win()</div><div class="ttdoc">Nyeres eseten szukseges feladatok megvalositasa (pl. fajlmuvelet, stb.)</div><div class="ttdef"><b>Definition</b> <a href="#l00056">game.cpp:56</a></div></div>
+<div class="ttc" id="aclass_game_html_a706a8a60e8e93da5a5c48a4db0e1b194"><div class="ttname"><a href="class_game.html#a706a8a60e8e93da5a5c48a4db0e1b194">Game::Win</a></div><div class="ttdeci">void Win()</div><div class="ttdoc">Nyeres eseten szukseges feladatok megvalositasa (pl. fajlmuvelet, stb.)</div><div class="ttdef"><b>Definition</b> <a href="#l00057">game.cpp:57</a></div></div>
 <div class="ttc" id="aclass_game_html_a8c3f69d8405eaf234152754141b01550"><div class="ttname"><a href="class_game.html#a8c3f69d8405eaf234152754141b01550">Game::VisitCell</a></div><div class="ttdeci">void VisitCell(int x, int y)</div><div class="ttdef"><b>Definition</b> <a href="#l00032">game.cpp:32</a></div></div>
-<div class="ttc" id="aclass_game_html_a9acf908745745a6576c729e620136367"><div class="ttname"><a href="class_game.html#a9acf908745745a6576c729e620136367">Game::Undo</a></div><div class="ttdeci">void Undo()</div><div class="ttdoc">Visszavonas eseten a Game szintjen elvegzendo feladatokat valositja meg.</div><div class="ttdef"><b>Definition</b> <a href="#l00042">game.cpp:42</a></div></div>
-<div class="ttc" id="aclass_game_html_aa14c099aafe9c03368325aff4fba08a5"><div class="ttname"><a href="class_game.html#aa14c099aafe9c03368325aff4fba08a5">Game::VisitedSelected</a></div><div class="ttdeci">void VisitedSelected(int x, int y)</div><div class="ttdef"><b>Definition</b> <a href="#l00038">game.cpp:38</a></div></div>
-<div class="ttc" id="aclass_game_html_abd2148a09f874d11fa2290f609352c55"><div class="ttname"><a href="class_game.html#abd2148a09f874d11fa2290f609352c55">Game::SaveMidGame</a></div><div class="ttdeci">void SaveMidGame()</div><div class="ttdoc">A befejezes elotti kilepeskori teendok megvalositasa.</div><div class="ttdef"><b>Definition</b> <a href="#l00066">game.cpp:66</a></div></div>
+<div class="ttc" id="aclass_game_html_a9acf908745745a6576c729e620136367"><div class="ttname"><a href="class_game.html#a9acf908745745a6576c729e620136367">Game::Undo</a></div><div class="ttdeci">void Undo()</div><div class="ttdoc">Visszavonas eseten a Game szintjen elvegzendo feladatokat valositja meg.</div><div class="ttdef"><b>Definition</b> <a href="#l00043">game.cpp:43</a></div></div>
+<div class="ttc" id="aclass_game_html_aa14c099aafe9c03368325aff4fba08a5"><div class="ttname"><a href="class_game.html#aa14c099aafe9c03368325aff4fba08a5">Game::VisitedSelected</a></div><div class="ttdeci">void VisitedSelected(int x, int y)</div><div class="ttdef"><b>Definition</b> <a href="#l00039">game.cpp:39</a></div></div>
+<div class="ttc" id="aclass_game_html_abd2148a09f874d11fa2290f609352c55"><div class="ttname"><a href="class_game.html#abd2148a09f874d11fa2290f609352c55">Game::SaveMidGame</a></div><div class="ttdeci">void SaveMidGame()</div><div class="ttdoc">A befejezes elotti kilepeskori teendok megvalositasa.</div><div class="ttdef"><b>Definition</b> <a href="#l00067">game.cpp:67</a></div></div>
 <div class="ttc" id="aclass_game_html_ad59df6562a58a614fda24622d3715b65"><div class="ttname"><a href="class_game.html#ad59df6562a58a614fda24622d3715b65">Game::Game</a></div><div class="ttdeci">Game()</div><div class="ttdoc">Default Konstruktor.</div><div class="ttdef"><b>Definition</b> <a href="#l00004">game.cpp:4</a></div></div>
 <div class="ttc" id="aclass_timer_html"><div class="ttname"><a href="class_timer.html">Timer</a></div><div class="ttdef"><b>Definition</b> <a href="timer_8hpp_source.html#l00011">timer.hpp:11</a></div></div>
 <div class="ttc" id="aclass_undo_handler_html"><div class="ttname"><a href="class_undo_handler.html">UndoHandler</a></div><div class="ttdoc">A visszavonasokat kezelo adatstruktura, es a hozza kapcsolodo vezerlo fuggvenyek.</div><div class="ttdef"><b>Definition</b> <a href="undo_8hpp_source.html#l00039">undo.hpp:39</a></div></div>
-<div class="ttc" id="agame_8cpp_html_a1a969ba7738add74cbd75e85e76bca2f"><div class="ttname"><a href="game_8cpp.html#a1a969ba7738add74cbd75e85e76bca2f">operator&gt;&gt;</a></div><div class="ttdeci">std::istream &amp; operator&gt;&gt;(std::istream &amp;is, Game &amp;game)</div><div class="ttdef"><b>Definition</b> <a href="#l00082">game.cpp:82</a></div></div>
-<div class="ttc" id="agame_8cpp_html_aabae0ecb266ff0bd9f48a1f5f9e316e9"><div class="ttname"><a href="game_8cpp.html#aabae0ecb266ff0bd9f48a1f5f9e316e9">operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const Game &amp;game)</div><div class="ttdef"><b>Definition</b> <a href="#l00070">game.cpp:70</a></div></div>
+<div class="ttc" id="agame_8cpp_html_a1a969ba7738add74cbd75e85e76bca2f"><div class="ttname"><a href="game_8cpp.html#a1a969ba7738add74cbd75e85e76bca2f">operator&gt;&gt;</a></div><div class="ttdeci">std::istream &amp; operator&gt;&gt;(std::istream &amp;is, Game &amp;game)</div><div class="ttdef"><b>Definition</b> <a href="#l00083">game.cpp:83</a></div></div>
+<div class="ttc" id="agame_8cpp_html_aabae0ecb266ff0bd9f48a1f5f9e316e9"><div class="ttname"><a href="game_8cpp.html#aabae0ecb266ff0bd9f48a1f5f9e316e9">operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;os, const Game &amp;game)</div><div class="ttdef"><b>Definition</b> <a href="#l00071">game.cpp:71</a></div></div>
 <div class="ttc" id="agame_8hpp_html"><div class="ttname"><a href="game_8hpp.html">game.hpp</a></div></div>
 <div class="ttc" id="agame_8hpp_html_a7899b65f1ea0f655e4bbf8d2a5714285a7c3b28372eab88e0810f28cca056d82b"><div class="ttname"><a href="game_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285a7c3b28372eab88e0810f28cca056d82b">INGAME</a></div><div class="ttdeci">@ INGAME</div><div class="ttdef"><b>Definition</b> <a href="game_8hpp_source.html#l00010">game.hpp:10</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

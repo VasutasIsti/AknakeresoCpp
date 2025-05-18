@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['visit_0',['Visit',['../classCell.html#a1e148b3966cebedbd57d35b98aef5cc5',1,'Cell']]],
-  ['visitcell_1',['VisitCell',['../classGame.html#a8c3f69d8405eaf234152754141b01550',1,'Game']]],
-  ['visitedselected_2',['VisitedSelected',['../classGame.html#aa14c099aafe9c03368325aff4fba08a5',1,'Game']]]
+  ['platform_5fid_0',['PLATFORM_ID',['../cmake-build-debug-linux_2_c_make_files_23_825_81_2_compiler_id_c_2_c_make_c_compiler_id_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID:&#160;CMakeCCompilerId.c'],['../cmake-build-debug-linux_2_c_make_files_23_825_81_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID:&#160;CMakeCXXCompilerId.cpp'],['../cmake-build-debug-mingw_2_c_make_files_23_831_86_2_compiler_id_c_2_c_make_c_compiler_id_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID:&#160;CMakeCCompilerId.c'],['../cmake-build-debug-mingw_2_c_make_files_23_831_86_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID:&#160;CMakeCXXCompilerId.cpp'],['../cmake-build-debug_2_c_make_files_23_831_86_2_compiler_id_c_2_c_make_c_compiler_id_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID:&#160;CMakeCCompilerId.c'],['../cmake-build-debug_2_c_make_files_23_831_86_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID:&#160;CMakeCXXCompilerId.cpp']]]
 ];
