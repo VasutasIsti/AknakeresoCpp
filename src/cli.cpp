@@ -1,6 +1,8 @@
 #include "cli.hpp"
 #include <sstream>
 
+#ifndef CPORTA
+
 CLIRenderer::CLIRenderer(Game* game): cursor(Cursor()) {
 	this->game = game;
     initscr();			  // Ncurses inicializalasa
@@ -144,3 +146,5 @@ CLIRenderer::~CLIRenderer() {
     clear();
 	endwin();
 }
+
+#endif //CPORTA

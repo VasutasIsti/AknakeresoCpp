@@ -3,6 +3,7 @@
 
 #include <ctime>
 #include <iostream>
+#include "memtrace.h"
 
 /// Egy manualisabb idomero, ami a rendszeridot hasznalja.
 /// A manualis resze abbol adodik, hogy amikor kell konkret ido adat,

@@ -2,6 +2,7 @@
 #define CELL_HPP
 
 #include <iostream>
+#include "memtrace.h"
 
 /// A palyat alkoto cellak
 class Cell {

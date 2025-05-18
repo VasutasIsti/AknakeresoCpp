@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include "memtrace.h"
 
 /// Egy cella valtozasat roggzito adatstruktura
 class CellChange {

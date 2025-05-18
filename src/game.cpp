@@ -54,11 +54,12 @@ void Game::VisitCell(const int x, const int y, bool direct) {
     else {
         std::vector<std::array<int, 2>> empties;
         GetBoard().CheckAdjacents(x, y, empties);
-        for (int i = 0; i < empties.size(); i++){
+        for (size_t i = 0; i < empties.size(); i++){
             undo.LogVisiting(empties[i][0], empties[i][1], false);
             GetBoard().GetCell(empties[i][0], empties[i][1]).Visit();
             notVisiteds--;
         }
+        empties.clear();
     }
 
     if (notVisiteds == 0)

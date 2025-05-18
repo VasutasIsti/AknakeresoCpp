@@ -1,6 +1,8 @@
 #ifndef CLI_HPP
 #define CLI_HPP
 
+#ifndef CPORTA
+
 #include "game.hpp"
 
 // Itt volt egy majdnem 10 oranyi fejfajas, mivel a clion es az msys nem
@@ -9,6 +11,7 @@
 // teljeskoru linux developementbe valtas tortent. Funy az egeszben, hogy nativ
 // linux alatt is makogott csak a clion, szoval en nem ertem mi van szegeny ide-vel...
 #include <ncurses.h>
+#include "memtrace.h"
 
 /// A kurzor mozgas iranyat olvashatobba tevo enumerator 
 enum Direction {
@@ -73,5 +76,7 @@ public:
 	/// @brief Destruktor, ami felszabaditja az ncurses altal lefoglalt memoriat is
 	~CLIRenderer();
 };
+
+#endif //CPORTA
 
 #endif //CLI_HPP

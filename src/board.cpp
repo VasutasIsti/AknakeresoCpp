@@ -78,7 +78,7 @@ void Board::PlaceBombs() const {
 }
 
 Board::~Board() {
-    for (int i = 0; i < defaulty; i++)
+    for (int i = 0; i < sizeX; i++)
         delete[] cells[i];
     delete[] cells;
 }

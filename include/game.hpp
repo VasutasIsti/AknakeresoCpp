@@ -4,6 +4,7 @@
 #include "board.hpp"
 #include "timer.hpp"
 #include "undo.hpp"
+#include "memtrace.h"
 
 /// @brief A jatek allapotanak leirasara szolgalo enum.
 enum GameState {

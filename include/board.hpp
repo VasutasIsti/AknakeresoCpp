@@ -7,6 +7,7 @@
 
 #include "cell.hpp"
 #include "undo.hpp"
+#include "memtrace.h"
 
 /// A palyat alkoto cellakat osszefogo osztaly, nagyobb, a jatek belso mukodesehez
 /// szukseges fuggvenyek lakohelye. Memoria lokalitast tekintve oszlop osszefuggo.

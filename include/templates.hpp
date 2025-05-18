@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <sstream>
+#include "memtrace.h"
 
 /// @brief A felhasznalotol kerdez egy kerdest, es elmenti a valaszt.
 /// @tparam T A menteni kivant adat tipusa
