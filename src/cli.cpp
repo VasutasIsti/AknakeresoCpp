@@ -136,7 +136,12 @@ void CLIRenderer::LoseWindow() const {
     wprintw(endingWindow, "You lost! (Press a key to continue)");
     wrefresh(endingWindow);
     wgetch(gameWindow);
+    wclear(endingWindow);
+    wborder(endingWindow, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+    wrefresh(endingWindow);
 }
+
+void CLIRenderer::InformationWindow(const)
 
 CLIRenderer::~CLIRenderer() {
     // wclear(window);

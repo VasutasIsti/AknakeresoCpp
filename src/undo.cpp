@@ -1,6 +1,8 @@
 #include "undo.hpp"
 
 CellChange UndoHandler::Undo() {
+	if (cellChanges.empty())
+		throw std::out_of_range("Undo: No more undos available!");
 	CellChange current = cellChanges.back();
 	cellChanges.pop_back();
 	return current;

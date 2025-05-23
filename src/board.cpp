@@ -47,6 +47,8 @@ bool Board::IsEmptyListed(int x, int y, const std::vector<std::array<int, 2>>& e
 }
 
 void Board::CheckAdjacents(const int x, const int y, std::vector<std::array<int, 2>>& empties) {
+    if (empties.size() > 0 && cells[x][y].GetIsVisited())
+        return;
     empties.push_back(std::array<int, 2>({x,y}));
     for (int i = x-1; i <= x+1; i++)
         for (int j = y-1; j <= y+1; j++) {

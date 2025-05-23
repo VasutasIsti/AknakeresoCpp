@@ -28,6 +28,8 @@ Game::Game(const int x, const int y, const double diff, std::string username, co
 void Game::Flaging(const int x, const int y) {
     if (GetBoard().GetCell(x, y).GetIsVisited())
         return;
+    if (flagsRemaining == 0)
+        return; // Nincs mar zaszlo, amit lehetnne rakni
     undo.LogFlaging(x, y);
     bool flaged = board.GetCell(x, y).Flag();
     if (flaged) flagsRemaining--;
@@ -84,14 +86,18 @@ void Game::VisitedSelected(const int x, const int y) {
 void Game::Undo() {
     CellChange current;
     do {
-        current = undo.Undo();
-        // Igaz, ha a visszavonas utan zaszlo lett a cellan
-        bool flagstate = board.Undo(current);
-        if (current.flagedOrVisited) {
-            if (flagstate) flagsRemaining++;
-            else           flagsRemaining--;
+        try {
+            current = undo.Undo();
+        } catch (std::out_of_range& e) {
+            throw std::out_of_range("Undo out");
         }
-        else notVisiteds++;
+            // Igaz, ha a visszavonas utan zaszlo lett a cellan
+            bool flagstate = board.Undo(current);
+            if (current.flagedOrVisited) {
+                if (flagstate) flagsRemaining++;
+                else           flagsRemaining--;
+            }
+            else notVisiteds++;
     } while (!current.changedByPlayer);
 }
 

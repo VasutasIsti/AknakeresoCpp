@@ -75,7 +75,11 @@ int main() {
                 gameRen.WriteContent();
                 break;
             case 'z':
-                game->Undo();
+                try {
+                    game->Undo();
+                } catch (std::out_of_range& e) {
+                    gameRen.
+                }
                 gameRen.WriteContent();
                 break;
             case 'q':
